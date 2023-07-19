@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://omgkill.github.io/sitemap.xml
