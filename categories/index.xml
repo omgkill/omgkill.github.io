@@ -6,20 +6,11 @@
     <description>Recent content in Categories on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Development</title>
-      <link>https://omgkill.github.io/categories/development/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/development/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docs</title>
       <link>https://omgkill.github.io/categories/docs/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
       
       <guid>https://omgkill.github.io/categories/docs/</guid>
       <description></description>
@@ -28,9 +19,27 @@
     <item>
       <title>index</title>
       <link>https://omgkill.github.io/categories/index/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
       
       <guid>https://omgkill.github.io/categories/index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://omgkill.github.io/categories/shortcodes/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/categories/shortcodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://omgkill.github.io/categories/development/</link>
+      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://omgkill.github.io/categories/development/</guid>
       <description></description>
     </item>
     
@@ -58,15 +67,6 @@
       <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
       
       <guid>https://omgkill.github.io/categories/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://omgkill.github.io/categories/shortcodes/</link>
-      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/shortcodes/</guid>
       <description></description>
     </item>
     

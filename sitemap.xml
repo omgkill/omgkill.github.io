@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://omgkill.github.io/post/jane/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/post/jane-theme-preview.zh-cn/</loc>
     <lastmod>2018-03-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,6 +65,13 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/post/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</loc>
+    <lastmod>2023-07-02T11:25:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/bak/%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/wikijs/%E5%88%9B%E5%BB%BAwiki.js/</loc>
     <lastmod>2023-07-02T03:41:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,7 +108,56 @@
   
   <url>
     <loc>https://omgkill.github.io/categories/</loc>
-    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/docs/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/index/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/preview/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/shortcodes/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/shortcodes/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/tag-6/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -108,13 +171,6 @@
   
   <url>
     <loc>https://omgkill.github.io/categories/development/</loc>
-    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/categories/docs/</loc>
     <lastmod>2022-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -143,20 +199,6 @@
   
   <url>
     <loc>https://omgkill.github.io/tags/hugo/</loc>
-    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/categories/index/</loc>
-    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/tags/</loc>
     <lastmod>2022-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -242,34 +284,6 @@
   <url>
     <loc>https://omgkill.github.io/categories/math/</loc>
     <lastmod>2019-03-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/tags/preview/</loc>
-    <lastmod>2019-03-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/tags/tag-6/</loc>
-    <lastmod>2019-03-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/tags/shortcodes/</loc>
-    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/categories/shortcodes/</loc>
-    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -498,12 +512,6 @@
   
   <url>
     <loc>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/post/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

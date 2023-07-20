@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>preview</title>
+      <link>https://omgkill.github.io/tags/preview/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/tags/preview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://omgkill.github.io/tags/shortcodes/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/tags/shortcodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tag-6</title>
+      <link>https://omgkill.github.io/tags/tag-6/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/tags/tag-6/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Contribute</title>
       <link>https://omgkill.github.io/tags/contribute/</link>
@@ -85,33 +112,6 @@
       <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
       
       <guid>https://omgkill.github.io/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>preview</title>
-      <link>https://omgkill.github.io/tags/preview/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/tags/preview/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-6</title>
-      <link>https://omgkill.github.io/tags/tag-6/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/tags/tag-6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://omgkill.github.io/tags/shortcodes/</link>
-      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/tags/shortcodes/</guid>
       <description></description>
     </item>
     
