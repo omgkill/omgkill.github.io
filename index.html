@@ -599,7 +599,7 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/blog/">创建wiki.js</a>
+      <a class="post-link" href="/post/wiki%E6%90%9C%E7%B4%A2/">wiki搜索</a>
     </h1>
     
 
@@ -643,10 +643,10 @@
   <div class="post-content">
     
       <div class="post-summary">
-        部署WIKI.js wiki的介绍地址 https://sspai.com/post/78945 wiki 的docker compose文件 version: &#34;3&#34; services: db: image: postgres:11-alpine environment: POSTGRES_DB: wiki POSTGRES_PASSWORD: wikijsrocks POSTGRES_USER: wikijs logging: driver: &#34;none&#34; restart: unless-stopped volumes: - db-data:/var/lib/postgresql/data wiki: image: ghcr.io/requarks/wiki:2 depends_on: - db environment: DB_TYPE: postgres DB_HOST: db DB_PORT: 5432
+        wiki.js 安装搜索 整体安装，参考 https://www.bilibili.com/read/cv16951722/ 参考安装ElasticSearch https://zhuanlan.zhihu.com/p/257867352 安装好后，需要rebuild Note that if you already have content in your wiki, you must click on Rebuild Index afterwards to import all your existing content into the
       </div>
       <div class="read-more">
-        <a href="/post/blog/" class="read-more-link"
+        <a href="/post/wiki%E6%90%9C%E7%B4%A2/" class="read-more-link"
           >Read more</a
         >
       </div>
@@ -706,6 +706,18 @@
       
       <li >
         <a href="/page/7/">7</a>
+      </li>
+      
+      <li >
+        <a href="/page/8/">8</a>
+      </li>
+      
+      <li >
+        <a href="/page/9/">9</a>
+      </li>
+      
+      <li >
+        <a href="/page/10/">10</a>
       </li>
       
     </ul>
