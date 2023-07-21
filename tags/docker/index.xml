@@ -6,41 +6,14 @@
     <description>Recent content in docker on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2023 11:25:46 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ams2 压测服game服务容器化</title>
-      <link>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      <title>windows平台使用docker启动测试服</title>
+      <link>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</link>
+      <pubDate>Sun, 02 Jul 2023 11:25:46 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
-      <description>ams2 压测服game服务容器化 由于压测都是找空闲的机器来测试，所以每次压测都要重新部署环境，为了简化流程，想通过docker简化操作 参考lost</description>
-    </item>
-    
-    <item>
-      <title>Docker 跨主机容器间网络通信</title>
-      <link>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</guid>
-      <description>#Docker 跨主机容器通信实践 DockerOverlay网络 Overlay是一种覆盖在主机上的虚拟网络，我理解的overlay他需要借助插件或工具完成</description>
-    </item>
-    
-    <item>
-      <title>Docker单机容器互连</title>
-      <link>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</guid>
-      <description>安装docker yum install -y docker 创建网络 docker network create test_net 创建redis1 docker run -d &amp;ndash;rm &amp;ndash;name redis1 -h redis1 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 创建redis2 docker run -d &amp;ndash;rm &amp;ndash;name redis2 -h redis2 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 测试 docker exec -it redis1 ping -c 3 redis2</description>
-    </item>
-    
-    <item>
-      <title>使用Docker启动压测服</title>
-      <link>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</guid>
-      <description>gm服部署nexus3，这个用于docker image 仓库。 参考：http://confluence.super-chameleon.com:809</description>
+      <guid>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</guid>
+      <description>windows系统要求 系统是专业版 系统版本号Windows10 2018 April（Windows 1803）及以上版本 安装需要的功能 打开控制面板 -&amp;gt; 搜</description>
     </item>
     
   </channel>

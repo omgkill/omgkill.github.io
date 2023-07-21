@@ -6,103 +6,13 @@
     <description>Recent content in Categories on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>docker</title>
-      <link>https://omgkill.github.io/categories/docker/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      <title>git</title>
+      <link>https://omgkill.github.io/categories/git/</link>
+      <pubDate>Fri, 21 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docs</title>
-      <link>https://omgkill.github.io/categories/docs/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/docs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>index</title>
-      <link>https://omgkill.github.io/categories/index/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/index/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://omgkill.github.io/categories/shortcodes/</link>
-      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>https://omgkill.github.io/categories/development/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://omgkill.github.io/categories/golang/</link>
-      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>demo</title>
-      <link>https://omgkill.github.io/categories/demo/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/demo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://omgkill.github.io/categories/math/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>English</title>
-      <link>https://omgkill.github.io/categories/english/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/english/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>https://omgkill.github.io/categories/test/</link>
-      <pubDate>Wed, 30 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://omgkill.github.io/categories/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/categories/syntax-highlighting/</guid>
+      <guid>https://omgkill.github.io/categories/git/</guid>
       <description></description>
     </item>
     
