@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Baks on Jane - A super concise theme for Hugo</title>
+    <title>Baks on MMM</title>
     <link>https://omgkill.github.io/bak/</link>
-    <description>Recent content in Baks on Jane - A super concise theme for Hugo</description>
+    <description>Recent content in Baks on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Jul 2023 11:25:46 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/bak/index.xml" rel="self" type="application/rss+xml" />
@@ -22,7 +22,7 @@
       <pubDate>Sun, 02 Jul 2023 03:41:16 +0000</pubDate>
       
       <guid>https://omgkill.github.io/bak/%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/wikijs/%E5%88%9B%E5%BB%BAwiki.js/</guid>
-      <description>部署WIKI.js wiki的介绍地址 https://sspai.com/post/78945 wiki 的docker compose文件 version: &amp;#34;3&amp;#34; services: db: image: postgres:11-alpine environment: POSTGRES_DB: wiki POSTGRES_PASSWORD: wikijsrocks POSTGRES_USER: wikijs logging: driver: &amp;#34;none&amp;#34; restart: unless-stopped volumes: - db-data:/var/lib/postgresql/data wiki: image: ghcr.io/requarks/wiki:2 depends_on: - db environment: DB_TYPE: postgres DB_HOST: db DB_PORT: 5432</description>
+      <description>部署WIKI.js wiki的介绍地址 https://sspai.com/post/78945 wiki 的docker compose文件 1version: &amp;#34;3&amp;#34; 2services: 3 4 db: 5 image: postgres:11-alpine 6 environment: 7 POSTGRES_DB: wiki 8 POSTGRES_PASSWORD: wikijsrocks 9 POSTGRES_USER: wikijs 10 logging: 11 driver: &amp;#34;none&amp;#34; 12 restart: unless-stopped 13 volumes: 14 - db-data:/var/lib/postgresql/data 15</description>
     </item>
     
     <item>
