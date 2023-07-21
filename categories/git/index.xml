@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on MMM</title>
+    <link>https://omgkill.github.io/categories/git/</link>
+    <description>Recent content in git on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git 使用</title>
+      <link>https://omgkill.github.io/post/git/git%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 21 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://omgkill.github.io/post/git/git%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>git 使用 远程仓库的使用 查看远程仓库 git remote 看到origin 这是git给你克隆的仓库服务器的 默认名字 git remote -v 会显示名字与url，拉取与推送会独立显示 添</description>
+    </item>
+    
+  </channel>
+</rss>
