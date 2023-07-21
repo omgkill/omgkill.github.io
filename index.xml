@@ -147,6 +147,50 @@ Cobra Viper J Walter Weatherman Cast Learn more and contribute on GitHub.</descr
     </item>
     
     <item>
+      <title>ams2 压测服game服务容器化</title>
+      <link>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+      
+        <description>ams2 压测服game服务容器化 由于压测都是找空闲的机器来测试，所以每次压测都要重新部署环境，为了简化流程，想通过docker简化操作 参考lost</description>
+      
+    </item>
+    
+    <item>
+      <title>Docker 跨主机容器间网络通信</title>
+      <link>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</guid>
+      
+        <description>#Docker 跨主机容器通信实践 DockerOverlay网络 Overlay是一种覆盖在主机上的虚拟网络，我理解的overlay他需要借助插件或工具完成</description>
+      
+    </item>
+    
+    <item>
+      <title>Docker单机容器互连</title>
+      <link>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</guid>
+      
+        <description>安装docker yum install -y docker 创建网络 docker network create test_net 创建redis1 docker run -d &amp;ndash;rm &amp;ndash;name redis1 -h redis1 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 创建redis2 docker run -d &amp;ndash;rm &amp;ndash;name redis2 -h redis2 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 测试 docker exec -it redis1 ping -c 3 redis2</description>
+      
+    </item>
+    
+    <item>
+      <title>使用Docker启动压测服</title>
+      <link>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</guid>
+      
+        <description>gm服部署nexus3，这个用于docker image 仓库。 参考：http://confluence.super-chameleon.com:809</description>
+      
+    </item>
+    
+    <item>
       <title>How to Contribute</title>
       <link>https://omgkill.github.io/post/docs/how-to-contribute/</link>
       <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
@@ -192,60 +236,6 @@ Header This tutorial will show you how to create a simple theme in Hugo.</descri
       <guid>https://omgkill.github.io/post/other/test-toc/no-header-dont-show-toc/</guid>
       
         <description>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo: Math</title>
-      <link>https://omgkill.github.io/post/demo/5-math/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/demo/5-math/</guid>
-      
-        <description>&lt;p&gt;&lt;a href=&#34;https://www.intmath.com/cg5/katex-mathjax-comparison.php&#34;&gt;KaTeX and MathJax Comparison Demo, currently processed as KaTeX&lt;/a&gt;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo: more Shortcodes</title>
-      <link>https://omgkill.github.io/post/demo/7-shortcodes-preview/</link>
-      <pubDate>Sun, 04 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/demo/7-shortcodes-preview/</guid>
-      
-        <description>&lt;h2 id=&#34;what-a-shortcode-is&#34;&gt;What a Shortcode is&lt;/h2&gt;
-&lt;p&gt;Hugo loves Markdown because of its simple content format, but there are times when Markdown falls short. Often, content authors are forced to add raw HTML (e.g., video &lt;code&gt;&amp;lt;iframes&amp;gt;&lt;/code&gt;) to Markdown content. We think this contradicts the beautiful simplicity of Markdown&amp;rsquo;s syntax.&lt;/p&gt;
-&lt;p&gt;Hugo created &lt;strong&gt;shortcodes&lt;/strong&gt; to circumvent these limitations.&lt;/p&gt;
-&lt;p&gt;A shortcode is a simple snippet inside a content file that Hugo will render using a predefined template. Note that shortcodes will not work in template files. If you need the type of drop-in functionality that shortcodes provide but in a template, you most likely want a [partial template][partials] instead.&lt;/p&gt;
-&lt;p&gt;In addition to cleaner Markdown, shortcodes can be updated any time to reflect new classes, techniques, or standards. At the point of site generation, Hugo shortcodes will easily merge in your changes. You avoid a possibly complicated search and replace operation.&lt;/p&gt;
-&lt;p&gt;More details: &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/&#34;&gt;https://gohugo.io/content-management/shortcodes/&lt;/a&gt;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo: Image</title>
-      <link>https://omgkill.github.io/post/demo/1-image/</link>
-      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/demo/1-image/</guid>
-      
-        <description>&lt;p&gt;Thanks for &lt;a href=&#34;https://github.com/liwenyip/hugo-easy-gallery&#34;&gt;liwenyip/hugo-easy-gallery&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://github.com/xianmin/hugo-theme-jane/pull/48&#34;&gt;Zebradil · Pull Request #48&lt;/a&gt; .&lt;/p&gt;
-&lt;p&gt;Now, we could use &lt;code&gt;{{&amp;lt; gallery &amp;gt;}}&lt;/code&gt; shortcode in hugo-theme-jane.&lt;/p&gt;
-&lt;h2 id=&#34;normal-image&#34;&gt;Normal Image&lt;/h2&gt;
-&lt;p&gt;This is an image in &lt;code&gt;static/image&lt;/code&gt; folder.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34; id=&#34;hl-0-1&#34;&gt;&lt;a style=&#34;outline:none;text-decoration:none;color:inherit&#34; href=&#34;#hl-0-1&#34;&gt;1&lt;/a&gt;&lt;/span&gt;&lt;span&gt;![&lt;span style=&#34;color:#062873;font-weight:bold&#34;&gt;This is an image in `static/image` folder.&lt;/span&gt;](&lt;span style=&#34;color:#4070a0&#34;&gt;/image/example.jpg&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo: Shortcodes Notice</title>
-      <link>https://omgkill.github.io/post/demo/6-shortcode-notice/</link>
-      <pubDate>Sat, 03 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/demo/6-shortcode-notice/</guid>
-      
-        <description>normal use Note example: 1{{% notice note %}} 2A notice disclaimer 3{{% /notice %}} Result: note A notice disclaimer You could custom title : 1{{% notice note 笔记 %}} 2A notice disclaimer 3{{% /notice %}} 笔记 A notice disclaimer tip 1{{% notice tip %}} 2A tip disclaimer 3{{% /tip %}} tip A tip disclaimer info 1{{% notice info %}} 2A info disclaimer 3{{% /notice %}} info An information</description>
       
     </item>
     

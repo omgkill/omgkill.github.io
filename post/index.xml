@@ -81,6 +81,42 @@
     </item>
     
     <item>
+      <title>ams2 压测服game服务容器化</title>
+      <link>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
+      <description>ams2 压测服game服务容器化 由于压测都是找空闲的机器来测试，所以每次压测都要重新部署环境，为了简化流程，想通过docker简化操作 参考lost</description>
+    </item>
+    
+    <item>
+      <title>Docker 跨主机容器间网络通信</title>
+      <link>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</guid>
+      <description>#Docker 跨主机容器通信实践 DockerOverlay网络 Overlay是一种覆盖在主机上的虚拟网络，我理解的overlay他需要借助插件或工具完成</description>
+    </item>
+    
+    <item>
+      <title>Docker单机容器互连</title>
+      <link>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</guid>
+      <description>安装docker yum install -y docker 创建网络 docker network create test_net 创建redis1 docker run -d &amp;ndash;rm &amp;ndash;name redis1 -h redis1 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 创建redis2 docker run -d &amp;ndash;rm &amp;ndash;name redis2 -h redis2 &amp;ndash;net test_net 10.0.3.2:5001/base_redis 测试 docker exec -it redis1 ping -c 3 redis2</description>
+    </item>
+    
+    <item>
+      <title>使用Docker启动压测服</title>
+      <link>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
+      
+      <guid>https://omgkill.github.io/post/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</guid>
+      <description>gm服部署nexus3，这个用于docker image 仓库。 参考：http://confluence.super-chameleon.com:809</description>
+    </item>
+    
+    <item>
       <title>How to Contribute</title>
       <link>https://omgkill.github.io/post/docs/how-to-contribute/</link>
       <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
@@ -165,44 +201,6 @@ Header This tutorial will show you how to create a simple theme in Hugo.</descri
       
       <guid>https://omgkill.github.io/post/demo/6-shortcode-notice/</guid>
       <description>normal use Note example: 1{{% notice note %}} 2A notice disclaimer 3{{% /notice %}} Result: note A notice disclaimer You could custom title : 1{{% notice note 笔记 %}} 2A notice disclaimer 3{{% /notice %}} 笔记 A notice disclaimer tip 1{{% notice tip %}} 2A tip disclaimer 3{{% /tip %}} tip A tip disclaimer info 1{{% notice info %}} 2A info disclaimer 3{{% /notice %}} info An information</description>
-    </item>
-    
-    <item>
-      <title>Demo: Footnote</title>
-      <link>https://omgkill.github.io/post/demo/4-footnote/</link>
-      <pubDate>Thu, 01 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/demo/4-footnote/</guid>
-      <description>&lt;p&gt;Hugo-theme-jane optimized for footnote. When you mouse hover the footnote&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; , footnote content will be displayed.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>English Creating a New Theme</title>
-      <link>https://omgkill.github.io/post/other/english-preview/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/other/english-preview/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>This is a very long title This is a very long title This is a very long title This is a very long title This is a very long title</title>
-      <link>https://omgkill.github.io/post/other/this-is-a-very-long-title/</link>
-      <pubDate>Wed, 30 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://omgkill.github.io/post/other/this-is-a-very-long-title/</guid>
-      <description>This is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long titleThis is a very long title</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://omgkill.github.io/post/other/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://omgkill.github.io/post/other/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
   </channel>
