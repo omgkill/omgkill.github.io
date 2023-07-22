@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          简单介绍 g1gc Snapshot-At-The-Beginning与Remembered Sets - MMM
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="啊沉" />
+  <meta name="description" content="Snapshot-At-The-Beginning 标记方式有两种方式 增量更新（Increment Update） 初始快照（ Snapshot At The Beginning SATB） SATB（ Snapshot At The Beginning， 初始快照） 是一" />
+
+  <meta name="keywords" content="java, linux, game server" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.4" />
+
+
+<link rel="canonical" href="https://omgkill.github.io/post/jvm/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D-g1gc-snapshot-at-the-beginning%E4%B8%8Eremembered-sets/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e648edb59d1ff006a19e01c2cb2122eed0c654bf820ccfb0da1dfb4a21de3f72.css" integrity="sha256-5kjttZ0f8AahngHCyyEi7tDGVL&#43;CDM&#43;w2h37SiHeP3I=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="简单介绍 g1gc Snapshot-At-The-Beginning与Remembered Sets" />
+<meta property="og:description" content="Snapshot-At-The-Beginning 标记方式有两种方式 增量更新（Increment Update） 初始快照（ Snapshot At The Beginning SATB） SATB（ Snapshot At The Beginning， 初始快照） 是一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omgkill.github.io/post/jvm/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D-g1gc-snapshot-at-the-beginning%E4%B8%8Eremembered-sets/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-21T00:00:00+00:00" />
+<meta itemprop="name" content="简单介绍 g1gc Snapshot-At-The-Beginning与Remembered Sets">
+<meta itemprop="description" content="Snapshot-At-The-Beginning 标记方式有两种方式 增量更新（Increment Update） 初始快照（ Snapshot At The Beginning SATB） SATB（ Snapshot At The Beginning， 初始快照） 是一"><meta itemprop="datePublished" content="2021-11-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-11-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2209">
+<meta itemprop="keywords" content="GC," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="简单介绍 g1gc Snapshot-At-The-Beginning与Remembered Sets"/>
+<meta name="twitter:description" content="Snapshot-At-The-Beginning 标记方式有两种方式 增量更新（Increment Update） 初始快照（ Snapshot At The Beginning SATB） SATB（ Snapshot At The Beginning， 初始快照） 是一"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MMM</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      MMM
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+    <li class="menu-item">
+      <a class="menu-item-link">
+        <form action="/search" method="GET">
+          <input type="search" name="s" id="search-query" placeholder="">
+          <button type="submit">search</button>
+        </form>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">简单介绍 g1gc Snapshot-At-The-Beginning与Remembered Sets</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          啊沉
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2021-11-21">
+      2021-11-21
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        2209 words -
+        5 min read
+      </span>
+
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/jvm/"> jvm </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h3 id="snapshot-at-the-beginning">Snapshot-At-The-Beginning</h3>
+<ul>
+<li>
+<p>标记方式有两种方式</p>
+<ul>
+<li>增量更新（Increment Update）</li>
+<li>初始快照（ Snapshot At The Beginning SATB）</li>
+</ul>
+</li>
+<li>
+<p>SATB（ Snapshot At The Beginning， 初始快照） 是一种将并发标记阶段开始时对象间的引用关系， 以逻辑快照的形式进行保存的手段</p>
+</li>
+<li>
+<p>介绍并发标记</p>
+<ul>
+<li>
+<p>介绍简单标记</p>
+<ul>
+<li>在简单标记中， 所有可从根直接触达的对象都会被添加标记。 带标记的是存活对象， 不带标记的是死亡对象    <img src="https://img-blog.csdnimg.cn/081b0ac98cb64e738eb9af8196653796.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li>
+<p>标记位图</p>
+<ul>
+<li>
+<p>将用于标记的比特值等信息单独拿出来放到其他地方， 用来匹配对应的对象。</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/fa18b0c8383b48008386d626a8e25226.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li>
+<p>bottom 表示区域内众多对象的末尾</p>
+</li>
+<li>
+<p>nextTAMS 中的 TAMS 是“Top At Marking Start”（标记开始时的 top） 的缩写</p>
+</li>
+<li>
+<p>nextTAMS 保存了本次标记开始时的 top， 而 prevTAMS 保存了上次标记开始时的 top。</p>
+</li>
+<li>
+<p>next 是本次标记的标 记位图</p>
+</li>
+<li>
+<p>prev 是上次标记的标记位图， 保存了上次标记的结果</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>流程</p>
+<ol>
+<li>
+<p>初始标记阶段</p>
+<ol>
+<li>GC 线程首先会创建标记位图 next</li>
+<li>nextTAMS 指的 就是标记开始时 top 所在的位置， 所以在这里我们将它和 top 对齐</li>
+<li><img src="https://img-blog.csdnimg.cn/6fae399056174bfcaa6cff6b434e9e62.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>并发标记阶段</p>
+<ol>
+<li>
+<p>概念：在并发标记阶段， GC 线程继续扫描在初始标记阶段被标记过的对象， 完成对大部分存活对象的标记</p>
+</li>
+<li>
+<p>这个阶段是与用户线程并发执行的，那怎么来标记呢</p>
+</li>
+<li>
+<p>首先根据快照，来标记各个引用。</p>
+</li>
+<li>
+<p>new 新对象</p>
+</li>
+<li>
+<p>对象成员变量的变化</p>
+<ol>
+<li>
+<p>记录引用关系，所以需要写屏障技术，称之为 SATB 专用写屏障。</p>
+</li>
+<li>
+<p>伪代码</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span>     1: def satb_write_barrier(field, newobj):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a></span><span>     2:   if $gc_phase == GC_CONCURRENT_MARK:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a></span><span>     3:      oldobj = *field // (a)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a></span><span>     4:      if  oldobj != Null:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a></span><span>     5:          enqueue($current_thread.stab_local_queue, oldobj) // (b)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a></span><span>     6:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7">7</a></span><span>     7:      *field = newobj // (c)
+</span></span></code></pre></div></li>
+<li>
+<p>加入队列后的处理</p>
+<ol>
+<li>只扫描未被标记的</li>
+<li>已经标记的不处理</li>
+</ol>
+</li>
+<li>
+<p>并发标记阶段结束后区域的状态<br/><img src="https://img-blog.csdnimg.cn/a52ceafa62ef4a7cb475870bc66a1b94.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></p>
+</li>
+<li>
+<p>疑问</p>
+<ol>
+<li>多线程环境下如何加入队列
+<ol>
+<li>由GC线程来处理</li>
+<li>绑定线程队列</li>
+<li>线程本地队列满了，再放入全局队列</li>
+</ol>
+</li>
+<li>并发写一个字段，如果obj3对象field引用了objo, 两个线程并发赋值obj1，obj2. 导致obj1没有加入队列，那obj1会丢失吗
+<ol>
+<li>
+<p>obj1有两种可能，一种是new的，一种是另一个引用。</p>
+</li>
+<li>
+<p>obj1 未被 SATB 专用写屏障获知时对象之间的关系<br/><img src="https://img-blog.csdnimg.cn/05350838b1654cee9c9fb96cbe6e06bc.png" alt=""></p>
+</li>
+<li>
+<p>那obj4移除对obj1的引用会有问题吗<br/><img src="https://img-blog.csdnimg.cn/a5158a73f1bb457aa7ba2ff0217c48c7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>最终标记阶段</p>
+<ol>
+<li>未装满的 SATB 本地队列</li>
+</ol>
+</li>
+<li>
+<p>存活对象计数</p>
+<ol>
+<li>这个步骤会扫描各个区域的标记位图 next， 统计区域内存活对象的字节数</li>
+</ol>
+</li>
+<li>
+<p>收尾工作</p>
+<ol>
+<li>next_marked_bytes 替换为prev_marked_bytes，同时， prevTAMS 被移到了 nextTAMS 先前的位置</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>总的流程图 <img src="https://img-blog.csdnimg.cn/26985b2016dd421785db3e97ba65d85c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></li>
+</ul>
+<h2 id="remembered-set">remembered set</h2>
+<ol>
+<li>SATB 队列集合主要用 来记录标记过程中对象之间引用关系的变化
+2. 转移专用记忆集合则用
+来记录区域之间的引用关系。 通过使用转移专用记忆集合， 在转移时即
+使不扫描所有区域内的对象， 也可以查到待转移对象所在区域内的对象
+被其他区域引用的情况， 从而简化单个区域的转移处理
+3. 那为什么要使用remembered set，什么情况下使用
+<ol>
+<li>
+<p>减少全扫描</p>
+</li>
+<li>
+<p>分代垃圾回收，之间是怎么引用的</p>
+<ol>
+<li>分区内部引用
+<ol>
+<li>无论是新生代还是老年代的分区内部的引用，都不需要记录引用关系。因为是针对一个分区进行的垃圾回收，要么这个分区被回收，要么不被回收。</li>
+</ol>
+</li>
+<li>年轻代与年轻代之间的引用
+<ol>
+<li>G1 的三种回收算法（YGC/MIXED GC/FULL GC）都会全量处理新生代分区，所以新生代都会被遍历到。因此无需记录这种引用关系。</li>
+</ol>
+</li>
+<li>年轻代引用年老代
+<ol>
+<li>无需记录。G1 的 YGC 回收新生代，无需这个引用关系。混合 GC 时，G1 会采用新生代分区作为根，那么在遍历新生代分区时就能找到老年代分区了，无需这个引用关系。对于 FGC 来说，所有分区都会被处理，也无需这个引用关系。</li>
+</ol>
+</li>
+<li>年老代引用年轻代
+<ol>
+<li>需要记录。YGC 在回收新生代时，如果新生代的对象被老年代引用，那么需要标记为存活对象。即此时的根对象有两种，一个是栈空间 / 全局变量的引用，一个是老年代到新生代的引用。</li>
+</ol>
+</li>
+<li>年老代引用年老代
+<ol>
+<li>需要记录。混合 GC 时，只会回收部分老年代，被回收的老年代需要正确的标记哪些对象存活。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>记录引用方式</p>
+<ol>
+<li>point -in</li>
+<li>point-out</li>
+</ol>
+</li>
+<li>
+<p>如何记录引用关系</p>
+<ol>
+<li>对象与对象的引用</li>
+<li>region 与 region</li>
+<li>对象与region</li>
+<li>region 与 卡表（Card Table）</li>
+</ol>
+</li>
+<li>
+<p>Card Table</p>
+</li>
+<li>
+<p>卡表是由元素大小为 1 B 的数组实现的（图 3.3） 。 卡表里的元素称为卡片</p>
+<ol>
+<li><img src="https://img-blog.csdnimg.cn/88dbd3c19d1e4f4a85885209fc48a4d8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ol>
+<pre><code>2. 卡表的实体是数组。 数组的元素是 1 B 的卡片， 对应了堆中的 512 B。 脏卡片用灰色表示， 净卡
+   片用白色表示
+3. 根据对象获取对应的卡表
+   1. 卡表的实体是数组。 数组的元素是 1 B 的卡片， 对应了堆中的 512 B。 
+   2. (对象的地址 － 堆的头部地址)／ 512  
+4. 因为卡片的大小是 1 B， 所以可以用来表示很多状态。 卡片的种类很多， 我们主要关注以下两种
+   1. 净卡片
+   2. 净卡片
+</code></pre>
+<ol start="6">
+<li>
+<p>记忆集合的构造</p>
+<ol>
+<li>每个区域中都有一个转移专用记忆集合， 它是通过散列表实现的。 散列
+表的键是引用本区域的其他区域的地址， 而散列表的值是一个数组， 数
+组的元素是引用方的对象所对应的卡片索引。</li>
+<li><img src="https://img-blog.csdnimg.cn/9cf9758d873a49ae938ebaa2399b289a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></li>
+</ol>
+</li>
+<li>
+<p>写屏障</p>
+<ol>
+<li>
+<p>当对象的域被修改时， 被修改对象所对应的卡片会被转移专用写屏障记
+录到转移专用记忆集合中。 转移专用写屏障的伪代码如代码清单</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/468bdef3744b4166856a52bba5d85e42.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></p>
+</li>
+<li>
+<p>多线程优化</p>
+</li>
+<li>
+<p><img src="https://img-blog.csdnimg.cn/c2e3a184cc8e41188c570a5c969f4f8f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></p>
+</li>
+</ol>
+</li>
+<li>
+<p>记忆集合维护线程</p>
+<ol>
+<li>转移专用记忆集合维护线程主要进行下列处理
+<ol>
+<li>从转移专用记忆集合日志的集合中取出转移专用记忆集合日志， 从
+头开始扫描</li>
+<li>将卡片变为净卡片</li>
+<li>检查卡片所对应存储空间内所有对象的域</li>
+<li>往域中地址所指向的区域的记忆集合中添加卡片</li>
+<li><img src="https://img-blog.csdnimg.cn/e467b737e0504236a952fe46e89f618b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt=""></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>热卡片</p>
+<ol>
+<li>频繁发生修改的存储空间所对应的卡片称为热卡片（hot card）</li>
+<li>热卡
+片可能会多次被转移专用记忆集合维护线程处理成脏卡片， 从而加重转
+移专用记忆集合维护线程的负担， 因此需要特别处理。</li>
+<li>卡片计数表，它记录了卡片变成脏卡片的次
+数。</li>
+<li>脏卡片阈值（默认是 4）</li>
+</ol>
+</li>
+<li>
+<p>那GC时，记忆集合如何转移呢</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="转移对象">转移对象</h2>
+<ol>
+<li>是指参考并发标记提供的信息来选择被转移的区域。 被选中的区域称
+为回收集合
+2. 是指将回收集合内由根直接引用的对象， 以及被其他区域引用的对象
+转移到空闲区域中。
+3. 是指以②中转移的对象为起点扫描其子孙对象， 将所有存活对象一并
+转移。 当③结束之后， 回收集合内的所有存活对象就转移完成了。
+4. 伪代码  <img src="https://img-blog.csdnimg.cn/3001fed4f09a4655b17732badf24ec3a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAb21na2lsbA==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ol>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">啊沉</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2021-11-21
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/gc/">GC</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/redis/redis-cluster-%E8%BF%81%E7%A7%BB/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">redis cluster 迁移</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/windows/windows%E5%AD%90%E7%B3%BB%E7%BB%9Flinux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/">
+                <span class="next-text nav-default">windows子系统linux命令使用</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#snapshot-at-the-beginning">Snapshot-At-The-Beginning</a></li>
+      </ul>
+    </li>
+    <li><a href="#remembered-set">remembered set</a></li>
+    <li><a href="#转移对象">转移对象</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        啊沉
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.cd039883a6d8248cb14c999a62314c6013cabbfc7c90a4fa046eac12f5402950.js" integrity="sha256-zQOYg6bYJIyxTJmaYjFMYBPKu/x8kKT6BG6sEvVAKVA=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

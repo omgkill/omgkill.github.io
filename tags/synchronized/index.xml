@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>synchronized on MMM</title>
+    <link>https://omgkill.github.io/tags/synchronized/</link>
+    <description>Recent content in synchronized on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/synchronized/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java多线程锁的使用</title>
+      <link>https://omgkill.github.io/post/jvm/lock/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%94%81%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://omgkill.github.io/post/jvm/lock/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%94%81%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>synchronized 关键字 JAVA内存模型 线程、主内存、工作内存三者交互关系 java内存模型定义了8中操作 read（读取）：作用于主内存变量，把一个变量值从主</description>
+    </item>
+    
+  </channel>
+</rss>

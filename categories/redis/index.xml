@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on MMM</title>
+    <link>https://omgkill.github.io/categories/redis/</link>
+    <description>Recent content in redis on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis cluster 迁移</title>
+      <link>https://omgkill.github.io/post/redis/redis-cluster-%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://omgkill.github.io/post/redis/redis-cluster-%E8%BF%81%E7%A7%BB/</guid>
+      <description>redis cluster 迁移 准备 迁移工具，redis shake &amp;ndash; https://github.com/alibaba/RedisShake 生成dump文件 找一个机器，可以访问被迁移redis cluster 的机器 wget https://github.com/alibaba/RedisShake/releases/download/release-v2.1.1-20210903/release-v2.1.1-20210903.tar.gz tar -zxvf release-v2.1.1-20210903.tar.gz cd release-v2.1.1-20210903 修改配置，vi redis-shake.conf 1 #配置so</description>
+    </item>
+    
+  </channel>
+</rss>

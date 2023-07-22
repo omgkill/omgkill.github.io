@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GC on MMM</title>
+    <link>https://omgkill.github.io/tags/gc/</link>
+    <description>Recent content in GC on MMM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/gc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jvm gc参数</title>
+      <link>https://omgkill.github.io/post/jvm/jvm-gc%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://omgkill.github.io/post/jvm/jvm-gc%E5%8F%82%E6%95%B0/</guid>
+      <description>一部分jvm参数详解网址：http://www.51gjie.com/java/551.html 与gc无关设定 -D user.timezone=UTC 指定时区 测试服启动指定时区</description>
+    </item>
+    
+  </channel>
+</rss>
