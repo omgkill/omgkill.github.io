@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Hugo 使用 Jane 主题常用的一些配置 - MMM
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="M" />
+  <meta name="description" content="sixdian Notes Hugo 使用 Jane 主题常用的一些配置 Published on: April 21, 2022 | Reading Time: 4 min | Last Modified: April 21, 2022 hugojane配置 Hugo 下的 Jane 主题是基于 even 主题进行的重新改造，主要有以下特色： 响" />
+
+  <meta name="keywords" content="java, linux, game server" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.4" />
+
+
+<link rel="canonical" href="https://omgkill.github.io/post/knowledgesite/jane/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e648edb59d1ff006a19e01c2cb2122eed0c654bf820ccfb0da1dfb4a21de3f72.css" integrity="sha256-5kjttZ0f8AahngHCyyEi7tDGVL&#43;CDM&#43;w2h37SiHeP3I=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Hugo 使用 Jane 主题常用的一些配置" />
+<meta property="og:description" content="sixdian Notes Hugo 使用 Jane 主题常用的一些配置 Published on: April 21, 2022 | Reading Time: 4 min | Last Modified: April 21, 2022 hugojane配置 Hugo 下的 Jane 主题是基于 even 主题进行的重新改造，主要有以下特色： 响" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omgkill.github.io/post/knowledgesite/jane/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-01T16:01:23+08:00" />
+<meta property="article:modified_time" content="2023-03-07T16:01:23+08:00" />
+<meta itemprop="name" content="Hugo 使用 Jane 主题常用的一些配置">
+<meta itemprop="description" content="sixdian Notes Hugo 使用 Jane 主题常用的一些配置 Published on: April 21, 2022 | Reading Time: 4 min | Last Modified: April 21, 2022 hugojane配置 Hugo 下的 Jane 主题是基于 even 主题进行的重新改造，主要有以下特色： 响"><meta itemprop="datePublished" content="2023-01-01T16:01:23+08:00" />
+<meta itemprop="dateModified" content="2023-03-07T16:01:23+08:00" />
+<meta itemprop="wordCount" content="1952">
+<meta itemprop="keywords" content="hugo,blob," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo 使用 Jane 主题常用的一些配置"/>
+<meta name="twitter:description" content="sixdian Notes Hugo 使用 Jane 主题常用的一些配置 Published on: April 21, 2022 | Reading Time: 4 min | Last Modified: April 21, 2022 hugojane配置 Hugo 下的 Jane 主题是基于 even 主题进行的重新改造，主要有以下特色： 响"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MMM</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      MMM
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+    <li class="menu-item">
+      <a class="menu-item-link">
+        <form action="/search" method="GET">
+          <input type="search" name="s" id="search-query" placeholder="">
+          <button type="submit">search</button>
+        </form>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Hugo 使用 Jane 主题常用的一些配置</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          M
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-01-01">
+      2023-01-01
+    </time>
+  </div>
+
+  
+    <div class="post-meta-lastmod">
+      (LastMod:
+      2023-03-07)
+    </div>
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        1952 words -
+        4 min read
+      </span>
+
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/blob/"> blob </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h2 id="-sixdian-noteshttpssixdiancom"><a href="https://sixdian.com/"> sixdian Notes</a></h2>
+<h2 id="hugo-使用-jane-主题常用的一些配置">Hugo 使用 Jane 主题常用的一些配置</h2>
+<p>Published on: April 21, 2022 | Reading Time: 4 min | Last Modified: April 21, 2022</p>
+<p><a href="https://sixdian.com/tags/hugo">hugo</a><a href="https://sixdian.com/tags/jane">jane</a><a href="https://sixdian.com/tags/%E9%85%8D%E7%BD%AE">配置</a></p>
+<p>Hugo 下的 Jane 主题是基于 even 主题进行的重新改造，主要有以下特色：</p>
+<ul>
+<li>响应式设计</li>
+<li>多国语言支持</li>
+<li>支持多个 Shortcode</li>
+<li>单独设计的标签页和分类页</li>
+<li>支持社交网站链接</li>
+<li>优秀的分页、目录、注脚样式</li>
+<li>使用更快的 Chroma 代码高亮</li>
+<li>自定义 css、js、head</li>
+<li>支持子目录</li>
+<li>搜索引擎优化</li>
+</ul>
+<p>初始化的样式展示的元素繁多可能不太符合每个人的实际需求，我们需要对需要显示的内容样式进行修改来增强站点整体的美感。下面就介绍如何改靠自己的独特主题：</p>
+<p>默认情况下生成的站点部署后我我们会发现在手机上点按菜单位置无效，无法正常显示下拉菜单。我们可以按照下面的方法让菜单能在移动端正常显示。</p>
+<h2 id="jane-主题移动端无法显示下拉菜单的解决方法">Jane 主题移动端无法显示下拉菜单的解决方法</h2>
+<p>themes\jane\layouts\partials\scripts.html #根据路径找到这个文件,删除其中的 integrity 属性</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span>&lt;script type=&#34;text/javascript&#34; src=&#34;{{ $secureJS.RelPermalink }}&#34; integrity=&#34;{{ $secureJS.Data.Integrity }}&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></div><p>另外现在人们通过 RSS 客户端阅读的方式已经越来越少，Jane 主题内的 RSS 订阅图标我个人觉得太过多余不符合我追求简洁的审美观，所以也要对它进行隐藏处理。具体处理方法如下：</p>
+<h2 id="jane-主题底部-rss-订阅图标删除">Jane 主题底部 RSS 订阅图标删除</h2>
+<p>./layouts/partials/social_links.html #在 themes 文件夹下根据路径找到这个文件，删除以下代码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1</a></span><span>&lt;!--
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2</a></span><span>{{/* RSS icon  */}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3</a></span><span>{{ with .Site.GetPage &#34;home&#34; -}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4"> 4</a></span><span>  {{- with .OutputFormats.Get &#34;RSS&#34; -}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5"> 5</a></span><span>  &lt;a href=&#34;{{ .Permalink }}&#34; rel=&#34;noopener {{ .Rel }}&#34; type=&#34;{{ .MediaType.Type }}&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6"> 6</a></span><span>    class=&#34;iconfont&#34; title=&#34;rss&#34; target=&#34;_blank&#34;&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7"> 7</a></span><span>    {{ partial &#34;svg/rss.svg&#34; }}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8"> 8</a></span><span>  &lt;/a&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9</a></span><span>  {{ end -}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10</a></span><span>{{- end -}}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11">11</a></span><span>--&gt;
+</span></span></code></pre></div><p>其它需要设置的细节内容过多，而且过于简单，下面统一做个总结：</p>
+<h2 id="jane-主题配置文件详细解释">Jane 主题配置文件详细解释</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">  1</a></span><span><span style="color:#60a0b0;font-style:italic"># 基础设置</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">  2</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">  3</a></span><span>baseURL = <span style="color:#4070a0">&#34;https://sixdian.com/&#34;</span>               <span style="color:#60a0b0;font-style:italic"># 博客部署网址</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">  4</a></span><span>title = <span style="color:#4070a0">&#34;六点随记&#34;</span>                              <span style="color:#60a0b0;font-style:italic"># 网站名称</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">  5</a></span><span>enableRobotsTXT = <span style="color:#007020;font-weight:bold">true</span>                         <span style="color:#60a0b0;font-style:italic"># 是否支持Robots协议</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6">  6</a></span><span>enableEmoji = <span style="color:#007020;font-weight:bold">true</span>                             <span style="color:#60a0b0;font-style:italic"># 是否支持Emoji表情符号</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7">  7</a></span><span>theme = <span style="color:#4070a0">&#34;jane&#34;</span>                                 <span style="color:#60a0b0;font-style:italic"># 选用jane主题</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8">  8</a></span><span>hasCJKLanguage = <span style="color:#007020;font-weight:bold">true</span>                          <span style="color:#60a0b0;font-style:italic"># 自动检测是否包含 中文\日文\韩文</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9">  9</a></span><span>paginate = <span style="color:#40a070">10</span>                                  <span style="color:#60a0b0;font-style:italic"># 首页每页显示的文章数目</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10"> 10</a></span><span>rssLimit = <span style="color:#40a070">20</span>                                  <span style="color:#60a0b0;font-style:italic"># 限制 Rss 文章输出数量</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11"> 11</a></span><span>disqusShortname = <span style="color:#4070a0">&#34;&#34;</span>                           <span style="color:#60a0b0;font-style:italic"># disqus_shortname</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12"> 12</a></span><span>googleAnalytics = <span style="color:#4070a0">&#34;&#34;</span>                           <span style="color:#60a0b0;font-style:italic"># 配置google统计</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13"> 13</a></span><span>copyright = <span style="color:#4070a0">&#34;&#34;</span>                                 <span style="color:#60a0b0;font-style:italic"># 默认为下面配置的author.name，</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14"> 14</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15"> 15</a></span><span><span style="color:#60a0b0;font-style:italic"># 关于语言</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16"> 16</a></span><span>defaultContentLanguage = <span style="color:#4070a0">&#34;zh-cn&#34;</span>               <span style="color:#60a0b0;font-style:italic"># 默认博客语言环境</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17"> 17</a></span><span>[languages.zh-cn]                              <span style="color:#60a0b0;font-style:italic"># 语言支持</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18"> 18</a></span><span>  languageCode = <span style="color:#4070a0">&#34;zh-cn&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-19"> 19</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-20"> 20</a></span><span><span style="color:#60a0b0;font-style:italic"># 关于语法高亮，具体使用可查看https://gohugo.io/content-management/syntax-highlighting/</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-21"> 21</a></span><span>PygmentsCodeFences = <span style="color:#007020;font-weight:bold">true</span>                      <span style="color:#60a0b0;font-style:italic"># Enable syntax highlighting with GitHub flavoured code fences</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-22"> 22</a></span><span>PygmentsUseClasses = <span style="color:#007020;font-weight:bold">true</span>                      <span style="color:#60a0b0;font-style:italic"># Use CSS classes to format highlighted code</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-23"> 23</a></span><span>PygmentsCodefencesGuessSyntax = <span style="color:#007020;font-weight:bold">true</span>           <span style="color:#60a0b0;font-style:italic">#</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-24"> 24</a></span><span>PygmentsOptions = <span style="color:#4070a0">&#34;linenos=table&#34;</span>              <span style="color:#60a0b0;font-style:italic"># 开启显示行号</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-25"> 25</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-26"> 26</a></span><span>[author]                                       <span style="color:#60a0b0;font-style:italic"># 作者名称</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-27"> 27</a></span><span>  name = <span style="color:#4070a0">&#34;sixdian&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-28"> 28</a></span><span>[sitemap]                                      <span style="color:#60a0b0;font-style:italic"># 站点地图</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-29"> 29</a></span><span>  changefreq = <span style="color:#4070a0">&#34;weekly&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-30"> 30</a></span><span>  priority = <span style="color:#40a070">0.5</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-31"> 31</a></span><span>  filename = <span style="color:#4070a0">&#34;sitemap.xml&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-32"> 32</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-33"> 33</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-34"> 34</a></span><span><span style="color:#60a0b0;font-style:italic">#菜单设置</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-35"> 35</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-36"> 36</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-37"> 37</a></span><span>  name = <span style="color:#4070a0">&#34;主页&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-38"> 38</a></span><span>  weight = <span style="color:#40a070">10</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-39"> 39</a></span><span>  identifier = <span style="color:#4070a0">&#34;home&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-40"> 40</a></span><span>  url = <span style="color:#4070a0">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-41"> 41</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-42"> 42</a></span><span>  name = <span style="color:#4070a0">&#34;归档&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-43"> 43</a></span><span>  weight = <span style="color:#40a070">20</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-44"> 44</a></span><span>  identifier = <span style="color:#4070a0">&#34;archives&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-45"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-45"> 45</a></span><span>  url = <span style="color:#4070a0">&#34;/post/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-46"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-46"> 46</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-47"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-47"> 47</a></span><span>  name = <span style="color:#4070a0">&#34;分类&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-48"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-48"> 48</a></span><span>  weight = <span style="color:#40a070">30</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-49"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-49"> 49</a></span><span>  identifier = <span style="color:#4070a0">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-50"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-50"> 50</a></span><span>  url = <span style="color:#4070a0">&#34;/categories/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-51"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-51"> 51</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-52"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-52"> 52</a></span><span>  name = <span style="color:#4070a0">&#34;标签&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-53"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-53"> 53</a></span><span>  weight = <span style="color:#40a070">40</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-54"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-54"> 54</a></span><span>  identifier = <span style="color:#4070a0">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-55"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-55"> 55</a></span><span>  url = <span style="color:#4070a0">&#34;/tags/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-56"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-56"> 56</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-57"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-57"> 57</a></span><span>  name = <span style="color:#4070a0">&#34;关于&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-58"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-58"> 58</a></span><span>  weight = <span style="color:#40a070">50</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-59"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-59"> 59</a></span><span>  identifier = <span style="color:#4070a0">&#34;about&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-60"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-60"> 60</a></span><span>  url = <span style="color:#4070a0">&#34;/about/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-61"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-61"> 61</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-62"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-62"> 62</a></span><span>  name = <span style="color:#4070a0">&#34;友链&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-63"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-63"> 63</a></span><span>  weight = <span style="color:#40a070">60</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-64"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-64"> 64</a></span><span>  identifier = <span style="color:#4070a0">&#34;links&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-65"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-65"> 65</a></span><span>  url = <span style="color:#4070a0">&#34;/links/&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-66"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-66"> 66</a></span><span>[[menu.main]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-67"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-67"> 67</a></span><span>  name = <span style="color:#4070a0">&#34;订阅&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-68"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-68"> 68</a></span><span>  weight = <span style="color:#40a070">70</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-69"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-69"> 69</a></span><span>  identifier = <span style="color:#4070a0">&#34;feed&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-70"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-70"> 70</a></span><span>  url = <span style="color:#4070a0">&#34;/index.xml&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-71"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-71"> 71</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-72"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-72"> 72</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-73"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-73"> 73</a></span><span><span style="color:#60a0b0;font-style:italic">#其他参数设置</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-74"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-74"> 74</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-75"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-75"> 75</a></span><span>[params]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-76"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-76"> 76</a></span><span>  since = <span style="color:#4070a0">&#34;2022&#34;</span>                                <span style="color:#60a0b0;font-style:italic"># 站点建立时间</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-77"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-77"> 77</a></span><span>  homeFullContent = <span style="color:#007020;font-weight:bold">false</span>                       <span style="color:#60a0b0;font-style:italic"># 主页是否显示全部文章内容</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-78"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-78"> 78</a></span><span>  rssFullContent = <span style="color:#007020;font-weight:bold">true</span>                         <span style="color:#60a0b0;font-style:italic"># if false, Rss feed instead of the summary</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-79"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-79"> 79</a></span><span>  logoTitle = <span style="color:#4070a0">&#34;六点随笔&#34;</span>                         <span style="color:#60a0b0;font-style:italic"># 博客标题，默认值是上面设置的title，也就是网址名称</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-80"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-80"> 80</a></span><span>  keywords = [<span style="color:#4070a0">&#34;Hugo&#34;</span>, <span style="color:#4070a0">&#34;linux&#34;</span>, <span style="color:#4070a0">&#34;emacs&#34;</span>, <span style="color:#4070a0">&#34;CPU&#34;</span>]  <span style="color:#60a0b0;font-style:italic"># 关键字</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-81"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-81"> 81</a></span><span>  description = <span style="color:#4070a0">&#34;&#34;</span>                              <span style="color:#60a0b0;font-style:italic"># 网页描述</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-82"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-82"> 82</a></span><span>  archive-paginate = <span style="color:#40a070">30</span>                         <span style="color:#60a0b0;font-style:italic"># 归档、标签、分类每页显示的文章数目</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-83"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-83"> 83</a></span><span>  dateFormatToUse = <span style="color:#4070a0">&#34;2006-01-02&#34;</span>                <span style="color:#60a0b0;font-style:italic"># 日期显示格式，查看可支持的格式见https://gohugo.io/functions/format/</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-84"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-84"> 84</a></span><span>  moreMeta = <span style="color:#007020;font-weight:bold">true</span>                               <span style="color:#60a0b0;font-style:italic"># 是否显示字数统计与阅读时间</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-85"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-85"> 85</a></span><span>  showMenuLanguageChooser = <span style="color:#007020;font-weight:bold">true</span>                <span style="color:#60a0b0;font-style:italic"># 显示语言选择开关</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-86"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-86"> 86</a></span><span>  showAuthorInfo = <span style="color:#007020;font-weight:bold">true</span>                         <span style="color:#60a0b0;font-style:italic"># 文章末尾显示作者信息</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-87"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-87"> 87</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-88"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-88"> 88</a></span><span>  <span style="color:#60a0b0;font-style:italic"># 一些全局开关，这些是默认值，也可以在每一篇内容的 front matter 中对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-89"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-89"> 89</a></span><span>  toc = <span style="color:#007020;font-weight:bold">true</span>                                    <span style="color:#60a0b0;font-style:italic"># 是否开启目录</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-90"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-90"> 90</a></span><span>  photoswipe = <span style="color:#007020;font-weight:bold">true</span>                             <span style="color:#60a0b0;font-style:italic"># 是否启用PhotoSwipe（图片可点击）</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-91"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-91"> 91</a></span><span>  bootcdn = <span style="color:#007020;font-weight:bold">true</span>                                <span style="color:#60a0b0;font-style:italic"># 是否使用bootcdn</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-92"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-92"> 92</a></span><span>  mathjax = <span style="color:#007020;font-weight:bold">false</span>                               <span style="color:#60a0b0;font-style:italic"># 是否使用mathjax（数学公式）</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-93"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-93"> 93</a></span><span>  contentCopyright = <span style="color:#4070a0">&#39;六点创作，转载请注明出处！&#39;</span> <span style="color:#60a0b0;font-style:italic"># 版权声明</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-94"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-94"> 94</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-95"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-95"> 95</a></span><span>  customCSS = []            <span style="color:#60a0b0;font-style:italic"># if [&#39;custom.css&#39;], load &#39;/static/css/custom.css&#39; file</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-96"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-96"> 96</a></span><span>  customJS = []             <span style="color:#60a0b0;font-style:italic"># if [&#39;custom.js&#39;], load &#39;/static/js/custom.js&#39; file</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-97"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-97"> 97</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-98"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-98"> 98</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-99"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-99"> 99</a></span><span><span style="color:#60a0b0;font-style:italic"># CDN设置</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-100"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-100">100</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-101"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-101">101</a></span><span>  [params.publicCDN]        <span style="color:#60a0b0;font-style:italic"># load these files from public cdn</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-102"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-102">102</a></span><span>    enable = <span style="color:#007020;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-103"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-103">103</a></span><span>    jquery = <span style="color:#4070a0">&#39;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js&#34; integrity=&#34;sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-104"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-104">104</a></span><span>    slideout = <span style="color:#4070a0">&#39;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js&#34; integrity=&#34;sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-105"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-105">105</a></span><span>    gitmentJS = <span style="color:#4070a0">&#39;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-106"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-106">106</a></span><span>    gitmentCSS = <span style="color:#4070a0">&#39;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css&#34; crossorigin=&#34;anonymous&#34;&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-107"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-107">107</a></span><span>    photoswipe = <span style="color:#4070a0">&#39;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js&#34; integrity=&#34;sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-108"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-108">108</a></span><span>    photoswipeUI = <span style="color:#4070a0">&#39;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js&#34; integrity=&#34;sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-109"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-109">109</a></span><span>    photoswipeCSS = <span style="color:#4070a0">&#39;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css&#34; integrity=&#34;sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=&#34; crossorigin=&#34;anonymous&#34;&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-110"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-110">110</a></span><span>    photoswipeSKIN = <span style="color:#4070a0">&#39;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css&#34; integrity=&#34;sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=&#34; crossorigin=&#34;anonymous&#34;&gt;&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-111"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-111">111</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-112"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-112">112</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-113"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-113">113</a></span><span><span style="color:#60a0b0;font-style:italic"># 下面是关于评论系统，更新显示commit内容，谷歌搜索，文章打赏，访问数据统计等等</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-114"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-114">114</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-115"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-115">115</a></span><span>  [params.utteranc]         <span style="color:#60a0b0;font-style:italic"># utteranc is a comment system based on GitHub issues. see https://utteranc.es</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-116"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-116">116</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-117"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-117">117</a></span><span>    repo = <span style="color:#4070a0">&#34;xianmin/comments-for-hugo-theme-jane&#34;</span>    <span style="color:#60a0b0;font-style:italic"># The repo to store comments</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-118"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-118">118</a></span><span>    issueTerm = <span style="color:#4070a0">&#34;pathname&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-119"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-119">119</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-120"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-120">120</a></span><span>  [params.gitment]          <span style="color:#60a0b0;font-style:italic"># Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-121"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-121">121</a></span><span>    owner = <span style="color:#4070a0">&#34;&#34;</span>              <span style="color:#60a0b0;font-style:italic"># Your GitHub ID</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-122"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-122">122</a></span><span>    repo = <span style="color:#4070a0">&#34;&#34;</span>               <span style="color:#60a0b0;font-style:italic"># The repo to store comments</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-123"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-123">123</a></span><span>    clientId = <span style="color:#4070a0">&#34;&#34;</span>           <span style="color:#60a0b0;font-style:italic"># Your client ID</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-124"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-124">124</a></span><span>    clientSecret = <span style="color:#4070a0">&#34;&#34;</span>       <span style="color:#60a0b0;font-style:italic"># Your client secret</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-125"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-125">125</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-126"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-126">126</a></span><span>  [params.livere]               <span style="color:#60a0b0;font-style:italic">#LiveRe comment. see https://www.livere.com/</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-127"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-127">127</a></span><span>    uid = <span style="color:#4070a0">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-128"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-128">128</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-129"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-129">129</a></span><span>  [params.reward]                                         <span style="color:#60a0b0;font-style:italic"># 文章打赏</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-130"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-130">130</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-131"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-131">131</a></span><span>    wechat = <span style="color:#4070a0">&#34;/path/to/your/wechat-qr-code.png&#34;</span>           <span style="color:#60a0b0;font-style:italic"># 微信二维码</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-132"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-132">132</a></span><span>    alipay = <span style="color:#4070a0">&#34;/path/to/your/alipay-qr-code.png&#34;</span>           <span style="color:#60a0b0;font-style:italic"># 支付宝二维码</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-133"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-133">133</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-134"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-134">134</a></span><span>  [params.counter.busuanzi]  <span style="color:#60a0b0;font-style:italic"># a Chinese visitor counter  # 卜算子计数器</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-135"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-135">135</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-136"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-136">136</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-137"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-137">137</a></span><span>  [params.counter.leancloud]  <span style="color:#60a0b0;font-style:italic"># Chinese leancloud visitor counter  # leancloud 计数器</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-138"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-138">138</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-139"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-139">139</a></span><span>    appId = <span style="color:#4070a0">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-140"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-140">140</a></span><span>    appKey = <span style="color:#4070a0">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-141"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-141">141</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-142"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-142">142</a></span><span>  [params.commentCount.disqus] <span style="color:#60a0b0;font-style:italic"># show counts of comments for Disqus</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-143"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-143">143</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-144"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-144">144</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-145"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-145">145</a></span><span>  [params.search.google]    <span style="color:#60a0b0;font-style:italic"># google custom search, see https://cse.google.com</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-146"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-146">146</a></span><span>    enable = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-147"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-147">147</a></span><span>    id = <span style="color:#4070a0">&#34;002186711602136249422:q1gkomof_em&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-148"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-148">148</a></span><span>    title = <span style="color:#4070a0">&#34;Search&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-149"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-149">149</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-150"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-150">150</a></span><span>  [params.gitInfo]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-151"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-151">151</a></span><span>    gitRepo = <span style="color:#4070a0">&#34;https://github.com/xianmin/xianmin.org&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-152"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-152">152</a></span><span>    showCommitMessage = <span style="color:#007020;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-153"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-153">153</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-154"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-154">154</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-155"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-155">155</a></span><span><span style="color:#60a0b0;font-style:italic">#社交链接</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-156"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-156">156</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-157"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-157">157</a></span><span><span style="color:#60a0b0;font-style:italic">#  [params.social]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-158"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-158">158</a></span><span><span style="color:#60a0b0;font-style:italic">#  a-email = &#34;mailto:your@email.com&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-159"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-159">159</a></span><span><span style="color:#60a0b0;font-style:italic">#  b-stack-overflow = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-160"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-160">160</a></span><span><span style="color:#60a0b0;font-style:italic">#  c-twitter = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-161"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-161">161</a></span><span><span style="color:#60a0b0;font-style:italic">#  d-facebook = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-162"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-162">162</a></span><span><span style="color:#60a0b0;font-style:italic">#  e-linkedin = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-163"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-163">163</a></span><span><span style="color:#60a0b0;font-style:italic">#  f-google = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-164"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-164">164</a></span><span><span style="color:#60a0b0;font-style:italic">#  g-github = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-165"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-165">165</a></span><span><span style="color:#60a0b0;font-style:italic">#  h-weibo = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-166"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-166">166</a></span><span><span style="color:#60a0b0;font-style:italic">#  i-zhihu = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-167"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-167">167</a></span><span><span style="color:#60a0b0;font-style:italic">#  j-douban = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-168"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-168">168</a></span><span><span style="color:#60a0b0;font-style:italic">#  k-pocket = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-169"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-169">169</a></span><span><span style="color:#60a0b0;font-style:italic">#  l-tumblr = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-170"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-170">170</a></span><span><span style="color:#60a0b0;font-style:italic">#  m-instagram = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-171"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-171">171</a></span><span><span style="color:#60a0b0;font-style:italic">#  n-gitlab = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-172"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-172">172</a></span><span><span style="color:#60a0b0;font-style:italic">#  o-goodreads = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-173"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-173">173</a></span><span><span style="color:#60a0b0;font-style:italic">#  p-coding = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-174"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-174">174</a></span><span><span style="color:#60a0b0;font-style:italic">#  q-bilibili = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-175"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-175">175</a></span><span><span style="color:#60a0b0;font-style:italic">#  r-codeforces = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-176"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-176">176</a></span><span><span style="color:#60a0b0;font-style:italic">#  s-mastodon = &#34;http://localhost:1313&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-177"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-177">177</a></span><span><span style="color:#60a0b0;font-style:italic">#-------------------------------------------------------------------</span>
+</span></span></code></pre></div><p>© 2022-2023 🚴 <a href="mailto:admin@sixdian.com">sixdian</a></p>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">M</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2023-03-07
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
+  </p>
+</div>
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/hugo/">hugo</a>
+                <a href="https://omgkill.github.io/tags/blob/">blob</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/docker/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Docker 跨主机容器间网络通信</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/docker/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/">
+                <span class="next-text nav-default">使用Docker启动压测服</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-sixdian-noteshttpssixdiancom"><a href="https://sixdian.com/"> sixdian Notes</a></a></li>
+    <li><a href="#hugo-使用-jane-主题常用的一些配置">Hugo 使用 Jane 主题常用的一些配置</a></li>
+    <li><a href="#jane-主题移动端无法显示下拉菜单的解决方法">Jane 主题移动端无法显示下拉菜单的解决方法</a></li>
+    <li><a href="#jane-主题底部-rss-订阅图标删除">Jane 主题底部 RSS 订阅图标删除</a></li>
+    <li><a href="#jane-主题配置文件详细解释">Jane 主题配置文件详细解释</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        M
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.cd039883a6d8248cb14c999a62314c6013cabbfc7c90a4fa046eac12f5402950.js" integrity="sha256-zQOYg6bYJIyxTJmaYjFMYBPKu/x8kKT6BG6sEvVAKVA=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
