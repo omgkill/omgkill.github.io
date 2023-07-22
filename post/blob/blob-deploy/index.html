@@ -29,7 +29,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="啊沉" />
-  <meta name="description" content="博客搭建 整体的说明（*使用 Hugo 搭建博客*）：https://www.diguage.com/post/building-blog-with-h" />
+  <meta name="description" content="博客搭建 整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hug" />
 
   <meta name="keywords" content="java, linux, game server" />
 
@@ -68,18 +68,18 @@
 
 
 <meta property="og:title" content="博客搭建" />
-<meta property="og:description" content="博客搭建 整体的说明（*使用 Hugo 搭建博客*）：https://www.diguage.com/post/building-blog-with-h" />
+<meta property="og:description" content="博客搭建 整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hug" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://omgkill.github.io/post/blob/blob-deploy/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-07-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-07-22T00:00:00+00:00" />
 <meta itemprop="name" content="博客搭建">
-<meta itemprop="description" content="博客搭建 整体的说明（*使用 Hugo 搭建博客*）：https://www.diguage.com/post/building-blog-with-h"><meta itemprop="datePublished" content="2023-07-22T00:00:00+00:00" />
+<meta itemprop="description" content="博客搭建 整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hug"><meta itemprop="datePublished" content="2023-07-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-07-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="557">
+<meta itemprop="wordCount" content="407">
 <meta itemprop="keywords" content="blob," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="博客搭建"/>
-<meta name="twitter:description" content="博客搭建 整体的说明（*使用 Hugo 搭建博客*）：https://www.diguage.com/post/building-blog-with-h"/>
+<meta name="twitter:description" content="博客搭建 整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hug"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -334,8 +334,8 @@
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        557 words -
-        2 min read
+        407 words -
+        1 min read
       </span>
 
     <div class="post-meta-category">
@@ -357,12 +357,10 @@
 
         
         <div class="post-content">
-          <ol>
-<li>
-<p>博客搭建</p>
+          <h1 id="博客搭建">博客搭建</h1>
 <ol>
 <li>
-<p>整体的说明（<em><strong>*使用 Hugo 搭建博客*</strong></em>）：https://www.diguage.com/post/building-blog-with-hugo/</p>
+<p>整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hugo/</p>
 </li>
 <li>
 <p>搭建具体流程：</p>
@@ -400,59 +398,11 @@
 <li>
 <p>发布 ： hugo &ndash;theme=jane &ndash;baseURL=&ldquo;<a href="https://omgkill.github.io/%22">https://omgkill.github.io/&quot;</a> &ndash;buildDrafts</p>
 </li>
-</ol>
-<p>hugo &ndash;theme=jane &ndash;baseURL=&ldquo;<a href="https://omgkill.github.io/%22">https://omgkill.github.io/&quot;</a></p>
-<ol>
-<li>对与项目中包含submodule， clone下来应该没有submoudle的data。可以执行git submodule update <em>&ndash;init &ndash;recursive</em></li>
-</ol>
+<li>
+<p>生成文件 ：hugo &ndash;theme=jane &ndash;baseURL=&ldquo;<a href="https://omgkill.github.io/%22">https://omgkill.github.io/&quot;</a></p>
 </li>
 <li>
-<ol>
-<li>
-<p>cat sample.js | \</p>
-<p>tr -d &lsquo;\n\t&rsquo; | tr -s &rsquo; &rsquo; \</p>
-<p>| sed &rsquo;s:/*.**/::g&rsquo; \</p>
-<p>| sed &rsquo;s/ ?([{}();,:]) ?/\1/g&rsquo;</p>
-</li>
-</ol>
-</li>
-<li>
-<p>打印从M行到N行之间的文本：</p>
-<p>$ awk &lsquo;NR==M, NR==N&rsquo; filename</p>
-<p>例如：</p>
-<pre><code> seq 100 | awk 'NR==4,NR==6'
-</code></pre>
-</li>
-<li>
-<p>打印位于模式start_pattern 与 end_pattern之间的文本</p>
-<p>$ awk &lsquo;/start_pattern/, /end_pattern/&rsquo; filename</p>
-<p>awk &lsquo;/pa.*3/, /end/&rsquo; section.txt</p>
-</li>
-<li>
-<p>tac 命令, 倒序</p>
-<ul>
-<li>
-<p>seq 5 | tac</p>
-</li>
-<li>
-<p>tac命令默认使用\n作为行分隔符。使用-s 指定其他分隔符</p>
-<p>echo &ldquo;1,2&rdquo; | tac-s,</p>
-</li>
-<li>
-<p>使用awk的实现方式</p>
-<p>seq 9 | \</p>
-<pre><code>  awk '{ lifo[NR]=$0 } \
-
-      END {for(lno=NR;lno&gt;-1;lno--){print lifo[lno]; }
-
-      }' 
-</code></pre>
-</li>
-</ul>
-</li>
-<li>
-<p>find . -name *.cpp -print0 | \</p>
-<p>xargs -I{} -0 sed -i &rsquo;s/Copyright/Copyleft/g&rsquo; {}</p>
+<p>(但我没成功执行这个命令，我是克隆的)对与项目中包含submodule， clone下来应该没有submoudle的data。可以执行git submodule update <em>&ndash;init &ndash;recursive</em></p>
 </li>
 </ol>
 
