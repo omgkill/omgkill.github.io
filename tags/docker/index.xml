@@ -6,14 +6,14 @@
     <description>Recent content in docker on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Jul 2023 11:25:46 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>windows平台使用docker启动测试服</title>
-      <link>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</link>
-      <pubDate>Sun, 02 Jul 2023 11:25:46 +0000</pubDate>
+      <title>Docker 跨主机容器间网络通信</title>
+      <link>https://omgkill.github.io/post/docker/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
       
-      <guid>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</guid>
-      <description>windows系统要求 系统是专业版 系统版本号Windows10 2018 April（Windows 1803）及以上版本 安装需要的功能 打开控制面板 -&amp;gt; 搜</description>
+      <guid>https://omgkill.github.io/post/docker/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</guid>
+      <description>#Docker 跨主机容器通信实践 DockerOverlay网络 Overlay是一种覆盖在主机上的虚拟网络，我理解的overlay他需要借助插件或工具完成</description>
     </item>
     
   </channel>

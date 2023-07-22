@@ -8,12 +8,12 @@
     <language>en</language>
     <lastBuildDate>Sun, 01 Jan 2023 16:01:23 +0800</lastBuildDate><atom:link href="https://omgkill.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ams2 压测服game服务容器化</title>
-      <link>https://omgkill.github.io/post/docker/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
+      <title>Docker 跨主机容器间网络通信</title>
+      <link>https://omgkill.github.io/post/docker/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</link>
       <pubDate>Sun, 01 Jan 2023 16:01:23 +0800</pubDate>
       
-      <guid>https://omgkill.github.io/post/docker/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</guid>
-      <description>ams2 压测服game服务容器化 由于压测都是找空闲的机器来测试，所以每次压测都要重新部署环境，为了简化流程，想通过docker简化操作 参考lost</description>
+      <guid>https://omgkill.github.io/post/docker/docker-%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%AE%B9%E5%99%A8%E9%97%B4%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/</guid>
+      <description>#Docker 跨主机容器通信实践 DockerOverlay网络 Overlay是一种覆盖在主机上的虚拟网络，我理解的overlay他需要借助插件或工具完成</description>
     </item>
     
   </channel>
