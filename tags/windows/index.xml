@@ -6,14 +6,14 @@
     <description>Recent content in windows on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jul 2023 11:25:46 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>windows子系统linux命令使用</title>
-      <link>https://omgkill.github.io/post/windows/windows%E5%AD%90%E7%B3%BB%E7%BB%9Flinux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      <title>windows平台使用docker启动测试服</title>
+      <link>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</link>
+      <pubDate>Sun, 02 Jul 2023 11:25:46 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/windows/windows%E5%AD%90%E7%B3%BB%E7%BB%9Flinux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</guid>
-      <description>在cmd中执行linux命令 wsl linux命令 参考文章：https://docs.microsoft.com/zh-cn/windows/ws</description>
+      <guid>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</guid>
+      <description>windows系统要求 系统是专业版 系统版本号Windows10 2018 April（Windows 1803）及以上版本 安装需要的功能 打开控制面板 -&amp;gt; 搜</description>
     </item>
     
   </channel>

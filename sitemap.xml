@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://omgkill.github.io/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/wiki/%E6%90%AD%E5%BB%BAgollum/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/tags/blob/</loc>
     <lastmod>2023-07-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -17,20 +38,6 @@
   
   <url>
     <loc>https://omgkill.github.io/categories/</loc>
-    <lastmod>2023-07-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/</loc>
-    <lastmod>2023-07-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/post/</loc>
     <lastmod>2023-07-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -72,6 +79,13 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/tags/docker/</loc>
+    <lastmod>2023-07-02T11:25:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/tags/wiki.js/</loc>
     <lastmod>2023-07-02T11:25:46+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,6 +94,20 @@
   
   <url>
     <loc>https://omgkill.github.io/post/wiki/wiki%E6%90%9C%E7%B4%A2/</loc>
+    <lastmod>2023-07-02T11:25:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/windows/</loc>
+    <lastmod>2023-07-02T11:25:46+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/docker/windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</loc>
     <lastmod>2023-07-02T11:25:46+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -95,6 +123,34 @@
   <url>
     <loc>https://omgkill.github.io/post/wiki/%E5%88%9B%E5%BB%BAwiki.js/</loc>
     <lastmod>2023-07-02T03:41:16+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/game/</loc>
+    <lastmod>2023-07-01T12:44:24+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/game/</loc>
+    <lastmod>2023-07-01T12:44:24+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/record/</loc>
+    <lastmod>2023-07-01T12:44:24+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/game/tlrecord/</loc>
+    <lastmod>2023-07-01T12:44:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -121,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://omgkill.github.io/tags/docker/</loc>
+    <loc>https://omgkill.github.io/post/docker/game%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96/</loc>
     <lastmod>2023-03-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -129,6 +185,41 @@
   
   <url>
     <loc>https://omgkill.github.io/categories/docker/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/jenkins/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/nexus3/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/docker/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E5%8E%8B%E6%B5%8B%E6%9C%8D/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/%E5%8E%8B%E6%B5%8B/</loc>
+    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2023-03-07T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -156,8 +247,15 @@
   </url>
   
   <url>
-    <loc>https://omgkill.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <loc>https://omgkill.github.io/tags/contribute/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/development/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -165,6 +263,41 @@
   <url>
     <loc>https://omgkill.github.io/post/docker/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/</loc>
     <lastmod>2023-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/docs/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/go/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/golang/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/docs/how-to-contribute/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/index/</loc>
+    <lastmod>2022-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,6 +331,55 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/post/other/test-toc/global-toc-except-this/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/development/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/golang/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/templates/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/themes/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/toc/</loc>
+    <lastmod>2022-02-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/other/test-toc/no-header-dont-show-toc/</loc>
+    <lastmod>2022-02-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/tags/redis/</loc>
     <lastmod>2022-01-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -226,6 +408,13 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/post/docker/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/post/jvm/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D-g1gc-snapshot-at-the-beginning%E4%B8%8Eremembered-sets/</loc>
     <lastmod>2021-11-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -234,13 +423,6 @@
   
   <url>
     <loc>https://omgkill.github.io/tags/linux/</loc>
-    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://omgkill.github.io/tags/windows/</loc>
     <lastmod>2021-06-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -282,6 +464,20 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/tags/hash/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/hash/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/post/jvm/lock/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%94%81%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -310,6 +506,13 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/tags/rank/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/tags/synchronized/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -331,6 +534,20 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/post/game/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B4%BB%E5%8A%A8%E6%8E%92%E8%A1%8C%E6%A6%9C/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/hash/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8Dhash/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/tags/knowledge-summary/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -346,6 +563,13 @@
   
   <url>
     <loc>https://omgkill.github.io/categories/system/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/game/%E4%B8%80%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%8B%A5%E6%9C%89%E8%B5%84%E6%BA%90%E6%9C%80%E5%A4%9A%E7%8E%A9%E5%AE%B6/</loc>
     <lastmod>2020-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -394,6 +618,69 @@
   </url>
   
   <url>
+    <loc>https://omgkill.github.io/post/blob/jane-theme-preview/</loc>
+    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/preview/</loc>
+    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/shortcodes/</loc>
+    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/shortcodes/</loc>
+    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/tag-6/</loc>
+    <lastmod>2018-03-07T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/english/</loc>
+    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/categories/english/</loc>
+    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/other/english-preview/</loc>
+    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/tag-2/</loc>
+    <lastmod>2017-08-31T15:43:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://omgkill.github.io/about/</loc>
     <lastmod>2017-08-28T21:41:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -401,7 +688,36 @@
   </url>
   
   <url>
-    <loc>https://omgkill.github.io/home/</loc>
+    <loc>https://omgkill.github.io/post/other/creating-a-new-theme/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/other/goisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/other/hugoisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/tags/jekyll/</loc>
+    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://omgkill.github.io/post/other/migrate-from-jekyll/</loc>
+    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

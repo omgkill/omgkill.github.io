@@ -6,19 +6,19 @@
     <description>Recent content on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://omgkill.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>博客搭建</title>
-      <link>https://omgkill.github.io/post/blob/blob_deploy/</link>
-      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <title>搭建gollum</title>
+      <link>https://omgkill.github.io/post/wiki/%E6%90%AD%E5%BB%BAgollum/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/blob/blob_deploy/</guid>
+      <guid>https://omgkill.github.io/post/wiki/%E6%90%AD%E5%BB%BAgollum/</guid>
       
-        <description>博客搭建 整体的说明（使用 Hugo 搭建博客）：https://www.diguage.com/post/building-blog-with-hug</description>
+        <description>忽略 使用docker部署gollum, dockerFile 1FROM ruby:2.4.1-alpine 2MAINTAINER ilanni &amp;lt;ilanni@ilanni.com&amp;gt; 3RUN set -xe \ 4&amp;amp;&amp;amp; echo &amp;#34;https://mirrors.aliyun.com/alpine/v3.4/main&amp;#34; &amp;gt; /etc/apk/repositories \ 5&amp;amp;&amp;amp; echo &amp;#34;https://mirrors.aliyun.com/alpine/v3.4/community&amp;#34; &amp;gt;&amp;gt; /etc/apk/repositories \ 6&amp;amp;&amp;amp; apk --update add alpine-sdk icu-dev git rsync openssh \ 7&amp;amp;&amp;amp; gem install gollum github-markdown \ 8&amp;amp;&amp;amp; rm -rf /var/cache/apk/* \ 9&amp;amp;&amp;amp; mkdir -p /gollum/ \ 10&amp;amp;&amp;amp; git init</description>
       
     </item>
     
