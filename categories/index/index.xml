@@ -6,17 +6,14 @@
     <description>Recent content in index on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/categories/index/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to Contribute</title>
-      <link>https://omgkill.github.io/post/docs/how-to-contribute/</link>
-      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      <title>使用docker启动测试服</title>
+      <link>https://omgkill.github.io/post/docker/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/docs/how-to-contribute/</guid>
-      <description>Contributing to Jane There are many ways to contribute to the Jane theme: submitting pull requests, reporting issues, providing new translations, and creating suggestions.
-Build and Run If you want to understand how Jane works, you&amp;rsquo;ll want to get the source, build it, and run locally.
-Getting the sources 1git clone https://github.com/xianmin/hugo-theme-jane.git Prerequisites You need install the Hugo_extended version to use Hugo Pipes.
-We recommend that you use VSCode. And if you edit .</description>
+      <guid>https://omgkill.github.io/post/docker/%E4%BD%BF%E7%94%A8docker%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%9C%8D/</guid>
+      <description>申请端口 check out svn文档，svn地址：http://svn.super-chameleon.com:8822/svn/AMS_TD/Sourc</description>
     </item>
     
   </channel>
