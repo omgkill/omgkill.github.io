@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          一个查询拥有资源最多玩家 - MMM
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="啊沉" />
+  <meta name="description" content="这是一次艰难的经历，开始都很简单，但后续却发生很多问题 功能介绍 要搜索拥有某一种资源最多的玩家，然后发邮件告知目标玩家的名称和坐标 条件有，大本" />
+
+  <meta name="keywords" content="java, linux, game server" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.4" />
+
+
+<link rel="canonical" href="https://omgkill.github.io/post/game/%E4%B8%80%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%8B%A5%E6%9C%89%E8%B5%84%E6%BA%90%E6%9C%80%E5%A4%9A%E7%8E%A9%E5%AE%B6/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.124c859f46493cdcfd07514fe07d622ed4515a7eb0ab351d10cfd83c2cd6979c.css" integrity="sha256-EkyFn0ZJPNz9B1FP4H1iLtRRWn6wqzUdEM/YPCzWl5w=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="一个查询拥有资源最多玩家" />
+<meta property="og:description" content="这是一次艰难的经历，开始都很简单，但后续却发生很多问题 功能介绍 要搜索拥有某一种资源最多的玩家，然后发邮件告知目标玩家的名称和坐标 条件有，大本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omgkill.github.io/post/game/%E4%B8%80%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%8B%A5%E6%9C%89%E8%B5%84%E6%BA%90%E6%9C%80%E5%A4%9A%E7%8E%A9%E5%AE%B6/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-01T00:00:00+00:00" />
+<meta itemprop="name" content="一个查询拥有资源最多玩家">
+<meta itemprop="description" content="这是一次艰难的经历，开始都很简单，但后续却发生很多问题 功能介绍 要搜索拥有某一种资源最多的玩家，然后发邮件告知目标玩家的名称和坐标 条件有，大本"><meta itemprop="datePublished" content="2020-07-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="829">
+<meta itemprop="keywords" content="game,record," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一个查询拥有资源最多玩家"/>
+<meta name="twitter:description" content="这是一次艰难的经历，开始都很简单，但后续却发生很多问题 功能介绍 要搜索拥有某一种资源最多的玩家，然后发邮件告知目标玩家的名称和坐标 条件有，大本"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MMM</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      MMM
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+    <li class="menu-item">
+      <a class="menu-item-link">
+        <form action="/search" method="GET">
+          <input type="search" name="s" id="search-query" placeholder="">
+          <button type="submit">search</button>
+        </form>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">一个查询拥有资源最多玩家</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          啊沉
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2020-07-01">
+      2020-07-01
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        829 words -
+        2 min read
+      </span>
+
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/game/"> game </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h2 id="这是一次艰难的经历开始都很简单但后续却发生很多问题">这是一次艰难的经历，开始都很简单，但后续却发生很多问题</h2>
+<ul>
+<li>
+<p>功能介绍</p>
+<ol>
+<li>要搜索拥有某一种资源最多的玩家，然后发邮件告知目标玩家的名称和坐标</li>
+<li>条件有，大本等级、战力、是否是同一个联盟、资源种类、不能有保护罩、不能跨服、不能集团隐藏效果(gameEffect) (这三个就很艰难了)。</li>
+</ol>
+</li>
+<li>
+<p>过程</p>
+<ol>
+<li>一开始，是使用道具，而且每天重置次数。建了数据库表</li>
+<li>然后就是sql了，刚开始，我是用各种left join，然后执行比较慢。当时不以为然，觉得复杂的sql就应该这么长时间。
+后来果然被骂了，太烂。重新写。而且执行时间要在一秒内。
+<ol>
+<li>要求直接主键关联，发现确实快了许多。</li>
+<li>要使用主键，减少其他参数。</li>
+<li>不要关联大表，比如worldPoint, 表确实太大了，而且很慢。就算是主键也不行。</li>
+<li>发现 &gt; 、 &lt;&gt; 、 is null 并没有很影响速度</li>
+<li>到最后发现，最慢的还是 排序</li>
+<li>最好精简关联的表，当然能快速筛选出有效数据表，还是要关联的。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>难点</p>
+<ol>
+<li>
+<p>只查询一个玩家，还要判断这个不能是自己。这个怎么做</p>
+<ul>
+<li>不可能在加一个不等于判断，影响速度，可以查出两个玩家，再逻辑判断就可以了</li>
+</ul>
+</li>
+<li>
+<p>玩家主城，有buff效果，可以隐藏。而且这个效果和大地图是分隔的。如何查。</p>
+<ul>
+<li>这个确实很麻烦，怎么查。当时解决方法有两个，一个是连表查，然后查询出没有该效果的点。但这个表数据是模糊的，在这个表的点不一定有这个效果，会筛出一部分有效玩家。</li>
+<li>另一个是先查出20个玩家，再一个一个判断，玩家是否有这个效果。刚好有这个效果的玩家并不是很多，还可以承受。后来就选了后一个方案。</li>
+</ul>
+</li>
+<li>
+<p>玩家主城点可能被清除，需要判断。数据里可能有无效数据，需要排除。</p>
+<ul>
+<li>这个最初是没有好的方法的，因为连worldPoint表，太大了。无法做。</li>
+<li>后来worldPoint表做缓存了，都放入map里了。这个时候可以参考2方法，用逻辑来处理。更快一点</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>总结</p>
+<ol>
+<li>要有冗余，这样好筛选一点。</li>
+<li>缓存要学会利用，sql + 缓存是一种很好的方式</li>
+<li>不要返回错误的结果，宁愿抛异常，也不要给玩家一个有错的数据。浪费玩家金钱和时间。玩家对这个功能也就慢慢放弃了</li>
+</ol>
+</li>
+</ul>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">啊沉</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2020-07-01
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/game/">game</a>
+                <a href="https://omgkill.github.io/tags/record/">record</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/hash/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8Dhash/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">简单介绍hash</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/system/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                <span class="next-text nav-default">操作系统面试题</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#这是一次艰难的经历开始都很简单但后续却发生很多问题">这是一次艰难的经历，开始都很简单，但后续却发生很多问题</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        啊沉
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.4d48757c2b8fd379d865928e86a0521f650d2166e90744348e70a32d185e0131.js" integrity="sha256-TUh1fCuP03nYZZKOhqBSH2UNIWbpB0Q0jnCjLRheATE=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
