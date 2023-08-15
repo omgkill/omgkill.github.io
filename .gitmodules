@@ -1,0 +1,6 @@
+[submodule "page"]
+	path = page
+	url = git@github.com:omgkill/hugo_page.git
+[submodule "post"]
+	path = post
+	url = git@github.com:omgkill/hugo_post.git
