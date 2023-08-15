@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          jvm gc参数 - MMM
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="啊沉" />
+  <meta name="description" content="一部分jvm参数详解网址：http://www.51gjie.com/java/551.html 与gc无关设定 -D user.timezone=UTC 指定时区 测试服启动指定时区" />
+
+  <meta name="keywords" content="java, linux, game server" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.4" />
+
+
+<link rel="canonical" href="https://omgkill.github.io/post/javajvm/jvm/jvm-gc%E5%8F%82%E6%95%B0/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.124c859f46493cdcfd07514fe07d622ed4515a7eb0ab351d10cfd83c2cd6979c.css" integrity="sha256-EkyFn0ZJPNz9B1FP4H1iLtRRWn6wqzUdEM/YPCzWl5w=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="jvm gc参数" />
+<meta property="og:description" content="一部分jvm参数详解网址：http://www.51gjie.com/java/551.html 与gc无关设定 -D user.timezone=UTC 指定时区 测试服启动指定时区" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omgkill.github.io/post/javajvm/jvm/jvm-gc%E5%8F%82%E6%95%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="name" content="jvm gc参数">
+<meta itemprop="description" content="一部分jvm参数详解网址：http://www.51gjie.com/java/551.html 与gc无关设定 -D user.timezone=UTC 指定时区 测试服启动指定时区"><meta itemprop="datePublished" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4026">
+<meta itemprop="keywords" content="jvm,GC," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="jvm gc参数"/>
+<meta name="twitter:description" content="一部分jvm参数详解网址：http://www.51gjie.com/java/551.html 与gc无关设定 -D user.timezone=UTC 指定时区 测试服启动指定时区"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MMM</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      MMM
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+    <li class="menu-item">
+      <a class="menu-item-link">
+        <form action="/search" method="GET">
+          <input type="search" name="s" id="search-query" placeholder="">
+          <button type="submit">search</button>
+        </form>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">jvm gc参数</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          啊沉
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2022-03-14">
+      2022-03-14
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        4026 words -
+        9 min read
+      </span>
+
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/jvm/"> JVM </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h4 id="一部分jvm参数详解网址httpwww51gjiecomjava551html">一部分jvm参数详解网址：http://www.51gjie.com/java/551.html</h4>
+<h2 id="与gc无关设定">与gc无关设定</h2>
+<ul>
+<li>
+<p>-D user.timezone=UTC</p>
+<blockquote>
+<ol>
+<li>指定时区
+测试服启动指定时区
+JVM运行时增加参数，指定时区</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>-Dfile.encoding=UTF-8</p>
+<blockquote>
+<p>文件格式</p>
+</blockquote>
+</li>
+<li>
+<p>-Djava.util.Arrays.useLegacyMergeSort=true</p>
+<blockquote>
+<p>Arrays.sort方法和Collections.sort（底层也是Arrays.sort）方法被替换了，如果违反了新的排序规则就可能会出现IllegalArgumentException异常（这里是可能，不是一定）。</p>
+</blockquote>
+<blockquote>
+<p>之前的方法会忽略掉一种情况，如果想使用之前的方法，这里提供了一个新的参数，java.util.Arrays.useLegacyMergeSort去还原之前的方法。
+最容易出错的情况就是自己写的比较器只写了1和-1的情况，而没有写0，</p>
+</blockquote>
+<blockquote>
+<p>如：
+这样会导至当x == y时，compare(x,y)的结果为 -1，此时sgn(compare(x,y)) = -1，这与第一种满足条件sgn(compare(x, y)) == -sgn(compare(y, x))相违背。所以会抛出IllegalArgumentException异常。
+对于 x &gt; y ? 1 : -1 ，当x == y时，也只是可可能会抛出异常，什么会抛出该异常，这要取绝于TimSort算法。</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:HeapDumpPath=${目录}</p>
+<blockquote>
+<p>参数表示生成DUMP文件的路径，也可以指定文件名称，例如：-XX:HeapDumpPath=${目录}/java_heapdump.hprof。如果不指定文件名，默认为：java_<pid><em><date></em><time>_heapDump.hprof。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="gc相关">gc相关</h3>
+<ul>
+<li>
+<p>XX:MaxTenuringThreshold</p>
+<blockquote>
+<p>生存次数达到进入老年代</p>
+</blockquote>
+</li>
+<li>
+<p>XX:MaxGCPauseMillis &ndash; 每次gc暂停时间</p>
+<blockquote>
+<p>是所有gc暂停时间吗？？还是young gc、mix gc</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:G1HeapRegionSize.</p>
+<blockquote>
+<p>region 大小，应该2的幂方，建议区域数量接近于2048</p>
+</blockquote>
+<blockquote>
+<p>When setting the region size, it’s important to understand the number of regions your heap-to-size ratio will create because the fewer the regions, the less flexibility G1 has and the longer it takes to scan, mark and collect each of them. In all cases, empty regions are added to an unordered linked list also known as the &ldquo;free list&rdquo;.</p>
+</blockquote>
+</li>
+<li>
+<p>G1ReservePercent</p>
+<blockquote>
+<p>预留内存</p>
+</blockquote>
+</li>
+<li>
+<p>G1HeapWastePercent</p>
+<blockquote>
+<p>最小可回收半分比，超过了才进行gc处理</p>
+</blockquote>
+<blockquote>
+<p>默认值5%，也就是在全局并发标记结束后能够统计出所有可被回收的垃圾占Heap的比例值，如果超过5%，那么就会触发之后的多轮Mixed GC，mixed gc会同时回收年轻代+老年代，而这个参数可以指定mixed gc触发的时机。而且mixed gc 可以在 gc log中清楚的记录下来。这个参数与InitiatingHeapOccupancyPercent 结合使用的话可以提前回收老年代，让老年代提前释放空间。</p>
+</blockquote>
+<blockquote>
+<p>默认5%， gc过程中空出来的region是否充足阈值，在混合回收的时候，对Region回收都是基于复制算法进行的，都是把要回收的Region里的存活对象放入其他 Region，然后这个Region中的垃圾对象全部清理掉，这样的话在回收过程就会不断空出来新的 Region，一旦空闲出来的Region数量达到了堆内存的5%，此时就会立即停止混合回收，意味着 本次混合回收就结束了</p>
+</blockquote>
+</li>
+<li>
+<p>G1MixedGCLiveThresholdPercent-</p>
+<blockquote>
+<p>一个 区域活对象百分比。低于这个百分比，才能对region回收</p>
+</blockquote>
+<blockquote>
+<p>-&gt; 默认85%，region中的存活对象低于这个值时才会回收该region，如果超过这个值，存活对象过多，回收的的意义不大。</p>
+</blockquote>
+</li>
+<li>
+<p>-Xss</p>
+<blockquote>
+<p>设置单个线程栈大小，比如-Xss512K，数值越小，一个线程栈里能分配的栈帧就越少，说明可以开启的线程数越多</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:MetaspaceSize</p>
+<blockquote>
+<p>设置方法区的大小，也是触发GC的阈值，比如</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:MaxMetaspaceSiz</p>
+<blockquote>
+<p>设置方法区的最大值，比如‐XX:MaxMetaspaceSize=256M</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:+HeapDumpOnOutOfMemoryError</p>
+<blockquote>
+<p>参数表示当JVM发生OOM时，自动生成DUMP文件。</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:MaxGCPauseMillis=150</p>
+<blockquote>
+<p>设置每次年轻代垃圾回收的最长时间，如果无法满足此时间，JVM会自动调整年轻代大小，以满足此值</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:+UseAdaptiveSizePolicy：</p>
+<blockquote>
+<p>设置此选项后，并行收集器会自动选择年轻代区大小和相应的Survivor区比例，以达到目标系统规定的最低相应时间或者收集频率等，此值建议使用并行收集器时，一直打开。</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:G1NewSizePercent</p>
+<blockquote>
+<p>设置新生代初始占比，在系统 运行中，JVM会不停的给年轻代增加更多的Region，但是最多新生代的占比不会超过 60%</p>
+</blockquote>
+</li>
+<li>
+<p>可以 通过“-XX:G1MaxNewSizePercent”调整</p>
+<blockquote>
+<p>年轻代最大占比</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:+UseConcMarkSweepGC:</p>
+<blockquote>
+<p>代表垃圾回收策略为并发收集器。</p>
+</blockquote>
+</li>
+<li>
+<p>XX:G1MixedGCCountTarget</p>
+<blockquote>
+<p>在一次回收过程中指定做几次筛选回收(默认8次)，在最后一个筛选回收阶段可以回收一会，然后暂停回收，恢复系统运行，一会再开始回收，这样可以让系统不至于单次停顿时间过长。</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:ConcGCThreads=2</p>
+</li>
+<li>
+<p>-XX:InitiatingHeapOccupancyPercent=45</p>
+<blockquote>
+<p>应该不仅仅是老年代，应该包含年轻代和年老代？？，如果这样，那触发频率应该很高啊。</p>
+</blockquote>
+<blockquote>
+<p>老年代占用空间达到整堆内存阈值(默认45%)，则执行 新生代和老年代的混合收集(MixedGC)，比如我们之前说的堆默认有2048个region，如果有接近 1000个region都是老年代的region，则可能就要触发MixedGC了</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:NewSize=n：</p>
+</li>
+<li>
+<p>‐Xmn -&gt; 设置年轻代大小，比如‐Xmn2g</p>
+<blockquote>
+<p>设置年轻代大小</p>
+</blockquote>
+</li>
+<li>
+<p>XX:NewRatio</p>
+</li>
+<li>
+<blockquote>
+<p>设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1：3，年轻代占整个年轻代年老代和的1/4</p>
+</blockquote>
+</li>
+<li>
+<p>XX:SurvivorRatio</p>
+<blockquote>
+<p>年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1/5</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:GCTimeRatio=n:</p>
+<blockquote>
+<p>设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:PretenureSizeThreshold</p>
+<blockquote>
+<p>可以设置大对象的大小，比如‐XX:PretenureSizeThreshold=100000000 单位为btye。</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:MaxTenuringThreshold</p>
+<blockquote>
+<p>设置分代年龄，比如‐XX:MaxTenuringThreshold=10 默认为15。</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:-HandlePromotionFailure</p>
+<blockquote>
+<p>老年代分配担保机制参数，1.8默认开启。</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:-UseAdaptiveSizePolicy</p>
+<blockquote>
+<p>禁止JVM自动优化eden和Survivor默认比例8：1：1，反之JVM默认有这个参数‐XX:+UseAdaptiveSizePolicy，会导致这个比例自动变化。</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:SurvivorRatio</p>
+<blockquote>
+<p>设置Eden和Survivor大小比如 ‐XX:SurvivorRatio =8，注意Survivor区有两个。表示Eden：Survivor=8：2，一个Survivor区占整个年轻代的1/10。</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:G1HeapRegionSize</p>
+<blockquote>
+<p>指定分区大小(1MB~32MB，且必须是2的幂)，默认将整堆划分为2048个分区</p>
+</blockquote>
+</li>
+<li>
+<p>‐XX:TargetSurvivorRatio</p>
+<blockquote>
+<p>Survivor区的填充容量(默认50%)，Survivor区域里的一批对象(年龄1+年龄2+年龄n的多个年龄对象)总和超过了Survivor区域的50%，此时就会把年龄n(含)以上的对象都放入老年代</p>
+</blockquote>
+</li>
+<li>
+<p>-XX:ParallelGCThreads=4：</p>
+<blockquote>
+<p>配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。</p>
+</blockquote>
+<details>
+<summary>code</summary>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a></span><span>     2、对于并行gc收集器：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a></span><span>     2.1、比如ps的时候：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a></span><span>             -XX:ParallelGCThreads={value} 这个参数是指定并行 GC 线程的数量，一般最好和 CPU 核心数量相当。默认情况下，当 CPU 数量小于8， ParallelGCThreads 的值等于 CPU 数量，当 CPU 数量大于 8 时，则使用公式：ParallelGCThreads = 8 + ((N - 8) * 5/8) = 3 +（（5*CPU）/ 8）；同时这个参数只要是并行 GC 都可以使用，不只是 ParNew。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a></span><span>             由于GC操作会暂停所有的应用程序线程，JVM为了尽量缩短停顿时间就必须尽可能地利用更多的CPU资源。这意味着，默认情况下，JVM会在机器的每个CPU上运行一个线程，最多同时运行8个。一旦达到这个上限，JVM会调整算法，每超出5/8个CPU启动一个新的线程。所以总的线程数就是（这里的N代表CPU的数目）：ParallelGCThreads = 8 + ((N - 8) * 5/8)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a></span><span>             有时候使用这个算法估算出来的线程数目会偏大。如果应用程序使用一个较小的堆（譬如大小为1 GB）运行在一个八颗CPU的机器上，使用4个线程或者6个线程处理这个堆可能会更高效。在一个128颗CPU的机器上，启动83个垃圾收集线程可能也太多了，除非系统使用的堆已经达到了最大上限。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a></span><span>     2.2、cms的时候：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a></span><span>             -XX:ParallelGCThreads 由于是并行处理器，当然也可以指定线程数。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a></span><span>             默认并发线程数是：（ParallelGCThreads + 3）/ 4）
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a></span><span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a></span><span>     附带：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a></span><span>     1、CPU总核数 = 物理CPU个数 * 每颗物理CPU的核数
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a></span><span>     2、总逻辑CPU数 = 物理CPU个数 * 每颗物理CPU的核数 * 超线程数
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a></span><span>     3、相关命令：
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19</a></span><span>           3.1、查看CPU信息（型号）[root@AAA ~]# cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21</a></span><span>                   28  Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23</a></span><span>          3.2、查看物理CPU个数 [root@AAA ~]# cat /proc/cpuinfo| grep &#34;physical id&#34;| sort| uniq| wc -l
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25</a></span><span>                   1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-27">27</a></span><span>          3.3、查看每个物理CPU中core的个数(即核数) [root@AAA ~]# cat /proc/cpuinfo| grep &#34;cpu cores&#34;| uniq
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-28">28</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-29">29</a></span><span>                   cpu cores : 14
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-30">30</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-31">31</a></span><span>         3.4、查看逻辑CPU的个数 [root@AAA ~]# cat /proc/cpuinfo| grep &#34;processor&#34;| wc -l
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-32">32</a></span><span>     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-33">33</a></span><span>                  12
+</span></span></code></pre></div>  </details>
+<h3 id="回收模式相关">回收模式相关</h3>
+<ul>
+<li>-XX:+UseG1GC
+<blockquote>
+<p>使用g1gc</p>
+</blockquote>
+</li>
+<li>-XX:+UseSerialGC：
+<blockquote>
+<p>代表垃圾回收策略为串行收集器，即在整个扫描和复制过程采用单线程的方式来进行，适用于单CPU、新生代空间较小及对暂停时间要求不是非常高的应用上，是client级别默认的GC方式，主要在JDK1.5之前的垃圾回收方式。</p>
+</blockquote>
+</li>
+<li>-XX:+UseParallelGC：
+<blockquote>
+<p>代表垃圾回收策略为并行收集器(吞吐量优先)，即在整个扫描和复制过程采用多线程的方式来进行，适用于多CPU、对暂停时间要求较短的应用上，是server级别默认采用的GC方式。
+此配置仅对年轻代有效。该配置只能让年轻人使用并发收集，而年老代仍旧使用串行收集</p>
+</blockquote>
+</li>
+<li>-XX:+UseParallelOldGC：
+<blockquote>
+<p>配置年老代垃圾收集方式为并行收集。JDK6.0支持对年老代并行收集</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="日志相关">日志相关</h3>
+<p>‐ XX:+PrintGCDetails</p>
+<blockquote>
+<p>打印GC日志</p>
+</blockquote>
+<p>‐ XX:+PrintGCTimeStamps</p>
+<blockquote>
+<p>打印GC时间</p>
+</blockquote>
+<p>‐ XX:+PrintGCDateStamps</p>
+<blockquote>
+<p>打印GC日期</p>
+</blockquote>
+<p>‐ Xloggc</p>
+<blockquote>
+<p>将GC日志保存为文件，比如‐Xloggc:./gc.log</p>
+</blockquote>
+<pre><code>    - 使用了参数
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1</a></span><span>-XX:ConcGCThreads=2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2</a></span><span>-XX:+DisableExplicitGC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3</a></span><span>-XX:G1MixedGCCountTarget=16
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4"> 4</a></span><span>-XX:G1RSetRegionEntries=1024
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5"> 5</a></span><span>-XX:+G1SummarizeRSetStats
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6"> 6</a></span><span>-XX:G1SummarizeRSetStatsPeriod=1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7"> 7</a></span><span>-XX:GCTimeRatio=4
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8"> 8</a></span><span>-XX:+HeapDumpOnOutOfMemoryError
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9</a></span><span>-XX:InitialHeapSize=524288000
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10</a></span><span>-XX:InitialTenuringThreshold=2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11">11</a></span><span>-XX:InitiatingHeapOccupancyPercent=45
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-12">12</a></span><span>-XX:MaxGCPauseMillis=150
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-13">13</a></span><span>-XX:MaxHeapSize=3145728000
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-14">14</a></span><span>-XX:MaxTenuringThreshold=2
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-15">15</a></span><span>-XX:-OmitStackTraceInFastThrow
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-16">16</a></span><span>-XX:ParallelGCThreads=4
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-17">17</a></span><span>-XX:+PrintCommandLineFlags
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-18">18</a></span><span>-XX:+PrintFlagsFinal
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-19">19</a></span><span>-XX:+PrintGC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-20">20</a></span><span>-XX:+PrintGCApplicationStoppedTime
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-21">21</a></span><span>-XX:+PrintGCDateStamps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-22">22</a></span><span>-XX:+PrintGCDetails
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-23">23</a></span><span>-XX:+PrintGCTimeStamps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-24">24</a></span><span>-XX:+PrintStringTableStatistics
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-25">25</a></span><span>-XX:+PrintTenuringDistribution
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-26">26</a></span><span>-XX:StringTableSize=200003
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-27">27</a></span><span>-XX:SurvivorRatio=6
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-28">28</a></span><span>-XX:+UnlockDiagnosticVMOptions
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-29">29</a></span><span>-XX:+UseCompressedClassPointers
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-30">30</a></span><span>-XX:+UseCompressedOops
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-31">31</a></span><span>-XX:+UseG1GC
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-32">32</a></span><span>-XX:-UseLargePagesIndividualAllocation
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-33">33</a></span><span>-XX:+UseStringDeduplication 
+</span></span></code></pre></div>
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">啊沉</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-03-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/jvm/">jvm</a>
+                <a href="https://omgkill.github.io/tags/gc/">GC</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/y-%E8%BF%90%E7%BB%B4/docker/docker%E5%8D%95%E6%9C%BA%E5%AE%B9%E5%99%A8%E4%BA%92%E8%BF%9E/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Docker单机容器互连</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/javajvm/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/">
+                <span class="next-text nav-default">代码热更脚本说明</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#与gc无关设定">与gc无关设定</a>
+      <ul>
+        <li><a href="#gc相关">gc相关</a></li>
+        <li><a href="#回收模式相关">回收模式相关</a></li>
+        <li><a href="#日志相关">日志相关</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        啊沉
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.207927e62f08293c8ccfc5db5b7feb4c49f76a0455cb88c03da2ca8d1f8c015a.js" integrity="sha256-IHkn5i8IKTyMz8XbW3/rTEn3agRVy4jAPaLKjR&#43;MAVo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

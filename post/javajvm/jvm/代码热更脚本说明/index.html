@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          代码热更脚本说明 - MMM
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="啊沉" />
+  <meta name="description" content="使用须知 热更是通过arthas redefine来实现的 目前热更支持操作 可以修改方法体 可以添加或删除 private static 或 private (static) final（这个上次测试有问题）" />
+
+  <meta name="keywords" content="java, linux, game server" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.4" />
+
+
+<link rel="canonical" href="https://omgkill.github.io/post/javajvm/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.124c859f46493cdcfd07514fe07d622ed4515a7eb0ab351d10cfd83c2cd6979c.css" integrity="sha256-EkyFn0ZJPNz9B1FP4H1iLtRRWn6wqzUdEM/YPCzWl5w=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="代码热更脚本说明" />
+<meta property="og:description" content="使用须知 热更是通过arthas redefine来实现的 目前热更支持操作 可以修改方法体 可以添加或删除 private static 或 private (static) final（这个上次测试有问题）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omgkill.github.io/post/javajvm/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="name" content="代码热更脚本说明">
+<meta itemprop="description" content="使用须知 热更是通过arthas redefine来实现的 目前热更支持操作 可以修改方法体 可以添加或删除 private static 或 private (static) final（这个上次测试有问题）"><meta itemprop="datePublished" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1985">
+<meta itemprop="keywords" content="jvm,hotfix," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="代码热更脚本说明"/>
+<meta name="twitter:description" content="使用须知 热更是通过arthas redefine来实现的 目前热更支持操作 可以修改方法体 可以添加或删除 private static 或 private (static) final（这个上次测试有问题）"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MMM</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      MMM
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/">This is Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://omgkill.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+    <li class="menu-item">
+      <a class="menu-item-link">
+        <form action="/search" method="GET">
+          <input type="search" name="s" id="search-query" placeholder="">
+          <button type="submit">search</button>
+        </form>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">代码热更脚本说明</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          啊沉
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2022-03-14">
+      2022-03-14
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        1985 words -
+        4 min read
+      </span>
+
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/jvm/"> JVM </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <h3 id="使用须知">使用须知</h3>
+<ol>
+<li>热更是通过arthas redefine来实现的</li>
+<li>目前热更支持操作
+<ul>
+<li>可以修改方法体</li>
+<li>可以添加或删除 private static 或 private (static) final（这个上次测试有问题） 方法</li>
+<li>可以删除热更新新加的方法，不可以删除本来的方法</li>
+<li>可以添加、删除或修改内部类，但要注意不要改变内部类首次被调用的顺序</li>
+</ul>
+</li>
+<li>热更不支持操作
+<ul>
+<li>不能添加、删除、修改类字段、以及字段的访问控制符
+<ul>
+<li>热部署不会重新初始化类，所以类成员变量还是之前的值</li>
+</ul>
+</li>
+<li>类的继承关系、接口不能改变，包括添加、删除、修改或改变先后顺序等</li>
+<li>不能修改类字段的排列顺序；</li>
+<li>不能增加、修改或删除方法签名、访问控制符，可以添加或删除 private static 或 private (static) final 方法</li>
+<li>不能改变 lambda 表达式在源码文件中出现的顺序；</li>
+<li>不能热部署增加、删除或修改闭包的源码文件；</li>
+<li>枚举不能新增或删除</li>
+</ul>
+</li>
+<li>热部署后，不要对热更新的类使用arthas这些 jad/watch/trace/monitor/tt 命令
+<ul>
+<li>redefine命令和jad/watch/trace/monitor/tt等命令会冲突</li>
+<li>观察到的现象
+<ul>
+<li>如果先使用redefine，再使用jad/watch/trace/monitor/tt这些命令，这时redefine 修改的代码还是存在的.</li>
+<li>如果使用了jad/watch/trace/monitor/tt命令，再使用redefine 热更新，这时再使用jad/watch/trace/monitor/tt命令，就会导致字节码重置，热更新的代码就丢失了</li>
+</ul>
+</li>
+<li>原因
+<ul>
+<li>jad/watch/trace/monitor/tt命令也是用的热部署，不过使用的另一种方式：retransform。但第一次使用retransform 会保留一份字节码，后续再使用retransform会以这份字节码为基础</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果是枚举或者内部类，需要找到对应的class文件热更</li>
+</ol>
+<h3 id="测试热部署服脚本">测试热部署服脚本</h3>
+<ol>
+<li>脚本地址：http://svn.super-chameleon.com:8822/svn/AMS_TD/Source/trunk/Server/Tools/Ops/hot_deploy_test.py</li>
+<li>脚本使用python脚本写的， 脚本支持svn号、java类全限定类名、class文件绝对路径来热部署</li>
+<li>使用脚本说明
+<ul>
+<li>使用svn号进行热部署
+<ul>
+<li>会更新最新代码，并编译</li>
+<li>通过svn log获取java文件，且是修改文件操作</li>
+<li>参数-n， 多个svn号以竖杠分割
+<ul>
+<li>示例：python hot_deploy_test.py -n 64013</li>
+<li>示例：python hot_deploy_test.py -n 64013|64109</li>
+</ul>
+</li>
+<li>支持指定服id，参数 -s。没有该参数，默认对2002服和2003服进行热更新
+<ul>
+<li>示例 python hot_deploy_test.py -n 64013 -s 2002</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用java全限定类名
+<ul>
+<li>会更新最新代码，并编译</li>
+<li>文件通过搜索项目下对应的class文件获得</li>
+<li>参数-j， 多个类以竖杠分割
+<ul>
+<li>python hot_deploy_test.py -j com.elex.cok.puredb.model.UserRecruitInfo.java</li>
+<li>python hot_deploy_test.py -j com.elex.cok.puredb.model.UserRecruitInfo.java|com.elex.cok.puredb.model.UserProfile.java</li>
+</ul>
+</li>
+<li>支持指定服id，参数 -s。没有该参数，默认对2002服和2003服进行热更新
+<ul>
+<li>示例 python hot_deploy_test.py -j com.elex.cok.puredb.model.UserRecruitInfo.java -s 2002</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用class绝对路径
+<ul>
+<li>仅支持对本机热部署</li>
+<li>参数-c ， 多个文件以竖杠分割
+<ul>
+<li>示例：python hot_deploy_test.py -c /home/ClashOfKingProject/cok-game/build/classes/java/main/com/elex/cok/puredb/model/UserRecruitInfo.class</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="linuxmac-本机热部署">LINUX/MAC 本机热部署</h3>
+<ol>
+<li>目前本机只支持class绝对路径来部署</li>
+<li>下载arthas,解压，里面会有脚本 as.ash</li>
+<li>需要修改hot_deploy_test.py变量`
+<ul>
+<li>arthas_sh_home 修改成 as.ash在本机的目录</li>
+<li>示例：arthas_sh_home = &lsquo;/home/elex/as.sh&rsquo;</li>
+</ul>
+</li>
+<li>热部署脚本参考 : 使用class绝对路径</li>
+<li>使用示例：python hot_deploy_test.py -c /home/ClashOfKingProject/cok-game/build/classes/java/main/com/elex/cok/puredb/model/UserRecruitInfo.class</li>
+</ol>
+<h3 id="windows-本机热部署">WINDOWS 本机热部署</h3>
+<ol>
+<li>目前本机只支持class绝对路径来部署</li>
+<li>下载arthas,解压，里面会有jar  arthas-boot.jar</li>
+<li>需要修改hot_deploy_test.py变量`
+<ul>
+<li>arthas_jar_home 修改成 arthas-boot.jar在本机的目录</li>
+<li>示例：arthas_jar_home = &lsquo;C:/Users/Administrator/Desktop/arthas/arthas-boot.jar&rsquo;</li>
+</ul>
+</li>
+<li>热部署脚本参考 : 使用class绝对路径</li>
+<li>使用示例 python hot_deploy_test.py  -c &lsquo;C:\Users\Administrator\Desktop\td\ClashOfKingProject\cok-game\build\classes\java\main\com\elex\cok\puredb\model\UserProfile.class&rsquo;</li>
+</ol>
+<h3 id="mybatis-mapperxml-热部署">mybatis mapper.xml 热部署</h3>
+<ol>
+<li>目前不支持，后续补充</li>
+</ol>
+<h3 id="线上热部署">线上热部署</h3>
+<ol>
+<li>脚本地址:http://svn.super-chameleon.com:8822/svn/AMS_TD/Source/trunk/Server/Tools/Deploy/deploy_global_hot_deploy.py</li>
+<li>脚本使用python脚本写的，用的fabric 2</li>
+<li>线上部署仅支持java全限定类名</li>
+<li>部署流程
+<ul>
+<li>热部署1服指令
+<ul>
+<li>脚本参数p,多个类以竖杠分割</li>
+<li>示例fab -f deploy_global_hot_deploy.py df:p=com.elex.cok.puredb.model.UserRecruitInfo.java</li>
+<li>脚本进行的处理：更新代码、编译、把class上传1服，执行热部署命令</li>
+</ul>
+</li>
+<li>让QA或策划测试没问题，再进行下面部署</li>
+<li>其他服热部署
+<ul>
+<li>脚本参数p，多个类以竖杠分割</li>
+<li>示例：fab -f deploy_global_hot_deploy.py do:p=com.elex.cok.puredb.model.UserRecruitInfo.java</li>
+<li>脚本进行的处理，其他服同步1服hot_deploy文件夹，执行热部署命令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="扩展">扩展</h3>
+<ul>
+<li>Java系列 | 远程热部署在美团的落地实践：https://tech.meituan.com/2022/03/17/java-hotswap-sonic.html</li>
+<li>JVM源码分析之javaagent原理完全解读 ： <a href="http://lovestblog.cn/blog/2015/09/14/javaagent/">http://lovestblog.cn/blog/2015/09/14/javaagent/</a></li>
+<li>JVM Attach机制实现：http://lovestblog.cn/blog/2014/06/18/jvm-attach/</li>
+<li>Java探针技术-动态重定义Class：https://blog.51cto.com/alex4dream/2740140</li>
+</ul>
+
+        </div>
+
+        
+        
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">啊沉</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-03-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/jvm/">jvm</a>
+                <a href="https://omgkill.github.io/tags/hotfix/">hotfix</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/javajvm/jvm/jvm-gc%E5%8F%82%E6%95%B0/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">jvm gc参数</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/database/redis/redis-cluster-%E8%BF%81%E7%A7%BB/">
+                <span class="next-text nav-default">redis cluster 迁移</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#使用须知">使用须知</a></li>
+        <li><a href="#测试热部署服脚本">测试热部署服脚本</a></li>
+        <li><a href="#linuxmac-本机热部署">LINUX/MAC 本机热部署</a></li>
+        <li><a href="#windows-本机热部署">WINDOWS 本机热部署</a></li>
+        <li><a href="#mybatis-mapperxml-热部署">mybatis mapper.xml 热部署</a></li>
+        <li><a href="#线上热部署">线上热部署</a></li>
+        <li><a href="#扩展">扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        啊沉
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.207927e62f08293c8ccfc5db5b7feb4c49f76a0455cb88c03da2ca8d1f8c015a.js" integrity="sha256-IHkn5i8IKTyMz8XbW3/rTEn3agRVy4jAPaLKjR&#43;MAVo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
