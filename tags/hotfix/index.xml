@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 14 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/hotfix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>代码热更脚本说明</title>
-      <link>https://omgkill.github.io/post/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/</link>
+      <link>https://omgkill.github.io/post/javajvm/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/</guid>
+      <guid>https://omgkill.github.io/post/javajvm/jvm/%E4%BB%A3%E7%A0%81%E7%83%AD%E6%9B%B4%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E/</guid>
       <description>使用须知 热更是通过arthas redefine来实现的 目前热更支持操作 可以修改方法体 可以添加或删除 private static 或 private (static) final（这个上次测试有问题）</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 03 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>设计模式</title>
-      <link>https://omgkill.github.io/post/codeoptimize/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://omgkill.github.io/post/j-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/code_style/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/codeoptimize/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://omgkill.github.io/post/j-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/code_style/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>单例模式 概念 确保一个类只有一个实例，并提供全局访问点 例子说明 single 是双重锁定，通过同步synchronzed确保多线程下只被一个线程执行，并在在</description>
     </item>
     
