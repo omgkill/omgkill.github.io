@@ -6,14 +6,14 @@
     <description>Recent content in Posts on MMM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://omgkill.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>mongodb的优缺点</title>
-      <link>https://omgkill.github.io/post/database/mongodb/mongodb-%E4%BC%98%E7%BC%BA%E7%82%B9/</link>
-      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
+      <title>RPC在game中调用关系</title>
+      <link>https://omgkill.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/rpc%E5%9C%A8game%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://omgkill.github.io/post/database/mongodb/mongodb-%E4%BC%98%E7%BC%BA%E7%82%B9/</guid>
-      <description>mongodb 的</description>
+      <guid>https://omgkill.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/rpc%E5%9C%A8game%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB/</guid>
+      <description>rpc调用方式 同步调用 异步调用 game调用需求 相同进程 相同线程,也就是请求线程和处理线程都在一个线程里 RPC同步调用 - 这里会出现死锁，导致R</description>
     </item>
     
   </channel>

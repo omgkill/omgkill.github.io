@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
-          mongodb的优缺点 - MMM
+          RPC在game中调用关系 - MMM
         </title>
     
 
@@ -29,7 +29,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="啊沉" />
-  <meta name="description" content="mongodb 的" />
+  <meta name="description" content="rpc调用方式 同步调用 异步调用 game调用需求 相同进程 相同线程,也就是请求线程和处理线程都在一个线程里 RPC同步调用 - 这里会出现死锁，导致R" />
 
   <meta name="keywords" content="java, linux, game server" />
 
@@ -41,7 +41,7 @@
 <meta name="generator" content="Hugo 0.115.4" />
 
 
-<link rel="canonical" href="https://omgkill.github.io/post/database/mongodb/mongodb-%E4%BC%98%E7%BC%BA%E7%82%B9/" />
+<link rel="canonical" href="https://omgkill.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/rpc%E5%9C%A8game%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB/" />
 
 
 
@@ -67,19 +67,19 @@
 
 
 
-<meta property="og:title" content="mongodb的优缺点" />
-<meta property="og:description" content="mongodb 的" />
+<meta property="og:title" content="RPC在game中调用关系" />
+<meta property="og:description" content="rpc调用方式 同步调用 异步调用 game调用需求 相同进程 相同线程,也就是请求线程和处理线程都在一个线程里 RPC同步调用 - 这里会出现死锁，导致R" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://omgkill.github.io/post/database/mongodb/mongodb-%E4%BC%98%E7%BC%BA%E7%82%B9/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-08-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-08-15T00:00:00+00:00" />
-<meta itemprop="name" content="mongodb的优缺点">
-<meta itemprop="description" content="mongodb 的"><meta itemprop="datePublished" content="2023-08-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-08-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="mongodb的优缺点"/>
-<meta name="twitter:description" content="mongodb 的"/>
+<meta property="og:url" content="https://omgkill.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/rpc%E5%9C%A8game%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-09-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-08T00:00:00+00:00" />
+<meta itemprop="name" content="RPC在game中调用关系">
+<meta itemprop="description" content="rpc调用方式 同步调用 异步调用 game调用需求 相同进程 相同线程,也就是请求线程和处理线程都在一个线程里 RPC同步调用 - 这里会出现死锁，导致R"><meta itemprop="datePublished" content="2023-09-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-09-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="514">
+<meta itemprop="keywords" content="rpc," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RPC在game中调用关系"/>
+<meta name="twitter:description" content="rpc调用方式 同步调用 异步调用 game调用需求 相同进程 相同线程,也就是请求线程和处理线程都在一个线程里 RPC同步调用 - 这里会出现死锁，导致R"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -291,7 +291,7 @@
       <article class="post">
         
         <header class="post-header">
-          <h1 class="post-title">mongodb的优缺点</h1>
+          <h1 class="post-title">RPC在game中调用关系</h1>
           
 
           <div class="post-meta">
@@ -306,8 +306,8 @@
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2023-08-15">
-      2023-08-15
+    <time datetime="2023-09-08">
+      2023-09-08
     </time>
   </div>
 
@@ -316,11 +316,14 @@
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        2 words -
-        1 min read
+        514 words -
+        2 min read
       </span>
 
-    
+    <div class="post-meta-category">
+        <a href="https://omgkill.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+          
+      </div>
 
 
     
@@ -336,8 +339,122 @@
 
         
         <div class="post-content">
-          <ul>
-<li>mongodb 的</li>
+          <h3 id="rpc调用方式">rpc调用方式</h3>
+<ul>
+<li>同步调用</li>
+<li>异步调用</li>
+</ul>
+<h3 id="game调用需求">game调用需求</h3>
+<ul>
+<li>相同进程
+<ul>
+<li>相同线程,也就是请求线程和处理线程都在一个线程里
+<ul>
+<li>RPC同步调用 - 这里会出现死锁，导致RPC等待超时</li>
+<li>RPC异步调用</li>
+</ul>
+</li>
+<li>不同线程，也就是请求线程和处理线程不在一个线程里
+<ul>
+<li>RPC同步调用</li>
+<li>RPC异步调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不同进程
+<ul>
+<li>不同线程
+<ul>
+<li>RPC同步调用</li>
+<li>RPC异步调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="可以想到的问题">可以想到的问题</h3>
+<ul>
+<li>RPC可能会出现循环递归的情况
+<ul>
+<li>同步的情况下会出现吗
+<ul>
+<li>同步的情况下会出现，但请求会中断，异常为超时</li>
+</ul>
+</li>
+<li>异步情况下呢
+<ul>
+<li>会一直循环
+<ul>
+<li>这里这个问题就需要做：如何检测</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="异步与同步的区别是什么">异步与同步的区别是什么</h3>
+<ul>
+<li>从数据看
+<ul>
+<li>异步 -&gt; 回调之后需要考虑数据改动了</li>
+<li>同步 -&gt; 玩家后续操作等待，不会改动数据。</li>
+</ul>
+</li>
+<li>从代码逻辑
+<ul>
+<li>请求的顺序
+<ul>
+<li>异步 -&gt; 需要考虑请求的顺序
+<ul>
+<li>一个玩家先请求，但由于是异步导致后处理，对结果有影响</li>
+<li>比如战斗场景</li>
+</ul>
+</li>
+<li>同步 -&gt; 我们不需要考虑</li>
+</ul>
+</li>
+<li>回调逻辑
+<ul>
+<li>异步 需要考虑回调</li>
+<li>同步 就是方法按照流程执行完</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>从异常处理
+<ul>
+<li>异步 -&gt; 需要对异常情况单独处理</li>
+</ul>
+</li>
+<li>从代码理解
+<ul>
+<li>异步需要考虑多种情况。参考上面的不同</li>
+</ul>
+</li>
+<li>从加锁看
+<ul>
+<li>同步 可以是用进程锁？？？
+<ul>
+<li>不一定，要分情况</li>
+</ul>
+</li>
+<li>异步 就要使用异步锁 ？？？</li>
+</ul>
+</li>
+</ul>
+<h3 id="异步更适合的场景">异步更适合的场景</h3>
+<ul>
+<li>附属逻辑，不需要返回</li>
+<li>不要求顺序
+<ul>
+<li>可以通过其他方式保证顺序。先不考虑</li>
+</ul>
+</li>
+<li>不要求实时 ？？这个不一定，异步也可以做的很快</li>
+<li>比较耗时的操作</li>
+<li>大量的请求</li>
 </ul>
 
         </div>
@@ -352,7 +469,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2023-08-15
+      2023-09-08
       
     </span>
   </p>
@@ -370,28 +487,18 @@
 
 
         <footer class="post-footer">
-          
+          <div class="post-tags">
+              <a href="https://omgkill.github.io/tags/rpc/">rpc</a>
+                
+            </div>
 
 
           
           <nav class="post-nav">
             
-              <a class="prev" href="/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/rpc%E5%9C%A8game%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB/">
-                
-                <i class="iconfont">
-                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-                </i>
-                <span class="prev-text nav-default">RPC在game中调用关系</span>
-                <span class="prev-text nav-mobile">Prev</span>
-              </a>
             
-              <a class="next" href="/post/%E7%AC%94%E8%AE%B0/%E8%A7%86%E9%A2%91%E7%AC%94%E8%AE%B0/%E4%BA%BA%E6%A0%BC%E4%B8%8E%E5%85%B6%E8%BD%AC%E5%8F%98-jordan-peterson/">
-                <span class="next-text nav-default">人格与其转变 - Jordan Peterson</span>
+              <a class="next" href="/post/database/mongodb/mongodb-%E4%BC%98%E7%BC%BA%E7%82%B9/">
+                <span class="next-text nav-default">mongodb的优缺点</span>
                 <span class="prev-text nav-mobile">Next</span>
                 
                 <i class="iconfont">
@@ -436,7 +543,24 @@
     </div>
 
     
-    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rpc调用方式">rpc调用方式</a></li>
+        <li><a href="#game调用需求">game调用需求</a></li>
+        <li><a href="#可以想到的问题">可以想到的问题</a></li>
+        <li><a href="#异步与同步的区别是什么">异步与同步的区别是什么</a></li>
+        <li><a href="#异步更适合的场景">异步更适合的场景</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
 
 
   </div>
