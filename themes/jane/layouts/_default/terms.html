@@ -1,0 +1,238 @@
+{{ define "title" }}{{ i18n .Data.Plural | default (title .Data.Plural ) }} - {{ .Site.Title }}{{ end }}
+
+{{ define "content" }}
+  {{ $termName := .Data.Singular }}
+  {{ $terms := .Data.Terms.ByCount }}
+  {{ $length := len $terms }}
+  {{ $type := .Type }}
+
+  <!-- Categories Page -->
+  {{ if and $.Site.Taxonomies.categories (eq $termName "category") }}
+    {{ range $terms }}
+    {{ $term := .Term }}
+    {{ $pages := .Pages }}
+    {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $term) }}
+      <section id="archive" class="archive terms-archive">
+        <div class="archive-title">
+        </div>
+          <div class="collection-title">
+            <h2 class="archive-year">
+              <a href="{{ .Permalink }}">
+                {{ i18n "category" }}{{ $term }}
+              </a>
+            </h2>
+          </div>
+
+          {{ range first 5 $pages }}
+            <div class="archive-post">
+              <time datetime="{{ .Date.Format "2006-01-02" }}" class="archive-post-time">
+                {{ .Date.Format "2006-01-02" }}
+              </time>
+              <span class="archive-post-title">
+                <a href="{{ .RelPermalink }}" class="archive-post-link">
+                  {{ .Title }}
+                </a>
+              </span>
+            </div>
+          {{ end }}
+          {{ if gt (len $pages) 5 }}
+            <div class="more-post">
+              <a href="{{ .Permalink }}" class="more-post-link">{{ i18n "morePost" }}</a>
+            </div>
+          {{ end }}
+      </section>
+    {{ end }}
+    {{ end }}
+
+  <!-- Tag cloud Page -->
+  {{ else if and $.Site.Taxonomies.tags (eq $termName "tag") }}
+    <style>
+      .tags-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
+      .tags-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .tags-header h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1d1d1f;
+        margin-bottom: 6px;
+      }
+      .tags-header p {
+        color: #86868b;
+        font-size: 14px;
+      }
+      .tags-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      .tag-item {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        background: #f5f5f7;
+        border-radius: 16px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #1d1d1f;
+      }
+      .tag-item:hover {
+        background: #1d1d1f;
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-2px);
+      }
+      .tag-item .count {
+        margin-left: 6px;
+        font-size: 12px;
+        color: #86868b;
+      }
+      .tag-item:hover .count {
+        color: rgba(255,255,255,0.7);
+      }
+      /* 热门标签样式 */
+      .tag-item.hot-1 {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+        color: #fff;
+        font-weight: 600;
+        padding: 8px 18px;
+        font-size: 16px;
+      }
+      .tag-item.hot-2 {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-weight: 500;
+        padding: 7px 16px;
+        font-size: 15px;
+      }
+      .tag-item.hot-3 {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        color: #fff;
+        padding: 7px 15px;
+      }
+      .tag-item.hot-1 .count,
+      .tag-item.hot-2 .count,
+      .tag-item.hot-3 .count {
+        color: rgba(255,255,255,0.8);
+      }
+      .tag-item.hot-1:hover,
+      .tag-item.hot-2:hover,
+      .tag-item.hot-3:hover {
+        filter: brightness(1.1);
+        background: inherit;
+      }
+    </style>
+
+    {{ $allTags := $.Site.Taxonomies.tags.ByCount }}
+    
+    <div class="tags-container">
+      <div class="tags-header">
+        <h1>标签</h1>
+        <p>共 {{ $length }} 个标签</p>
+      </div>
+
+      <div class="tags-grid">
+        {{ range $index, $tag := $allTags }}
+          {{ $tagName := .Term }}
+          {{ $count := .Count }}
+          {{ $hotClass := "" }}
+          {{ if ge $count 10 }}
+            {{ $hotClass = "hot-1" }}
+          {{ else if ge $count 5 }}
+            {{ $hotClass = "hot-2" }}
+          {{ else if ge $count 3 }}
+            {{ $hotClass = "hot-3" }}
+          {{ end }}
+          {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $tagName) }}
+          <a href="{{ .Permalink }}" class="tag-item {{ $hotClass }}">
+            {{ $tagName }}<span class="count">{{ $count }}</span>
+          </a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  <!-- Author Page -->
+  {{ else if and $.Site.Taxonomies.author (eq $termName "author") }}
+    {{ range $terms }}
+    {{ $term := .Term }}
+    {{ $pages := .Pages }}
+    {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $term) }}
+      <section id="archive" class="archive">
+        <div class="archive-title">
+        </div>
+          <div class="collection-title">
+            <h2 class="archive-year">
+              <a href="{{ .Permalink }}">
+                {{- $author := (index ($.Site.Data.authors | default dict) $term) -}}
+                {{- $author_lang := (index ($author | default dict) $.Site.Language.Lang) -}}
+                {{- $author_name := $author_lang.name.display | default $author.name.display | default $term -}}
+                {{ i18n "author_item" }}{{ $author_name }}
+              </a>
+            </h2>
+          </div>
+
+          {{ range first 5 $pages }}
+            <div class="archive-post">
+              <time datetime="{{ .Date.Format "2006-01-02" }}" class="archive-post-time">
+                {{ .Date.Format "2006-01-02" }}
+              </time>
+              <span class="archive-post-title">
+                <a href="{{ .RelPermalink }}" class="archive-post-link">
+                  {{ .Title }}
+                </a>
+              </span>
+            </div>
+          {{ end }}
+          {{ if gt (len $pages) 5 }}
+            <div class="more-post">
+              <a href="{{ .Permalink }}" class="more-post-link">{{ i18n "morePost" }}</a>
+            </div>
+          {{ end }}
+      </section>
+    {{ end }}
+    {{ end }}
+  {{ else }}
+  {{ range $terms }}
+    {{ $term := .Term }}
+    {{ $pages := .Pages }}
+    {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type $term)}}
+    <section id="archive" class="archive">
+      <div class="archive-title"></div>
+      <div class="collection-title">
+        <h2 class="archive-year">
+          <a href="{{ .Permalink }}">
+            {{ i18n $termName | default (printf "%s: " (title $termName)) }}{{ $term }}
+          </a>
+        </h2>
+      </div>
+      {{ range first 5 $pages }}
+            <div class="archive-post">
+              <time datetime="{{ .Date.Format "2006-01-02" }}" class="archive-post-time">
+                {{ .Date.Format "2006-01-02" }}
+              </time>
+              <span class="archive-post-title">
+                <a href="{{ .RelPermalink }}" class="archive-post-link">
+                  {{ .Title }}
+                </a>
+              </span>
+            </div>
+          {{ end }}
+          {{ if gt (len $pages) 5 }}
+            <div class="more-post">
+              <a href="{{ .Permalink }}" class="more-post-link">{{ i18n "morePost" }}</a>
+            </div>
+          {{ end }}
+    </section>
+    {{ end }}
+  {{ end }}
+
+  {{ end }}
+
+{{ end }}

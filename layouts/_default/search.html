@@ -1,0 +1,257 @@
+<section>
+    <style>
+        .search-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* 搜索框 */
+        .search-form {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 48px;
+            font-size: 17px;
+            border: none;
+            border-radius: 12px;
+            background-color: #f5f5f7;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 125, 250, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: #86868b;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: #86868b;
+        }
+
+        .search-button {
+            display: none;
+        }
+
+        /* 搜索结果统计 */
+        .search-stats {
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        /* 搜索结果项 */
+        .search-result-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            transition: background-color 0.15s ease;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-title {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .search-result-title a {
+            color: #1d1d1f;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .search-result-title a:hover {
+            color: #0066cc;
+        }
+
+        .search-result-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        .search-result-date {
+            color: #86868b;
+        }
+
+        .search-result-match-type {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            background: #f5f5f7;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #1d1d1f;
+        }
+
+        .search-result-snippet {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #424245;
+        }
+
+        .search-result-tags {
+            margin: 10px 0 0 0;
+            font-size: 13px;
+            color: #0066cc;
+        }
+
+        /* 高亮样式 */
+        mark {
+            background: linear-gradient(120deg, #fff3cd 0%, #ffe69c 100%);
+            color: #1d1d1f;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* 无结果 */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #86868b;
+        }
+
+        .no-results-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .no-results-text {
+            font-size: 17px;
+        }
+
+        /* 提示文字 */
+        .search-hint {
+            text-align: center;
+            padding: 60px 20px;
+            color: #86868b;
+            font-size: 15px;
+        }
+
+        /* 筛选按钮 */
+        .search-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #e8e8ed;
+        }
+
+        .filter-btn.active {
+            background-color: #1d1d1f;
+            color: #fff;
+        }
+
+        /* 首页按钮 */
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0066cc;
+            background: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #f5f5f7;
+            text-decoration: none;
+        }
+
+        .home-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+
+    <div class="search-container">
+        <a href="{{ "/" | absURL }}" class="home-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            首页
+        </a>
+
+        <form action="{{ "search" | absURL }}" method="GET" class="search-form">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="search" id="search-query" name="s" class="search-input" placeholder="搜索文章..." autocomplete="off" />
+            <button type="submit" class="search-button">搜索</button>
+        </form>
+
+        <div class="search-filters">
+            <button type="button" class="filter-btn active" data-filter="all">全部</button>
+            <button type="button" class="filter-btn" data-filter="title">标题</button>
+            <button type="button" class="filter-btn" data-filter="content">内容</button>
+        </div>
+
+        <div id="search-results"></div>
+    </div>
+</section>
+
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}" class="search-result-item">
+        <h4 class="search-result-title">
+            <a href="${link}">${title}</a>
+        </h4>
+        <div class="search-result-meta">
+            ${ isset date }<span class="search-result-date">${date}</span>${ end }
+            ${ isset matchTypes }<span class="search-result-match-type">${matchTypes}</span>${ end }
+        </div>
+        <p class="search-result-snippet">${snippet}</p>
+        ${ isset tags }<p class="search-result-tags">${tags}</p>${ end }
+    </div>
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+<script src="{{ "js/search.js" | absURL }}"></script>

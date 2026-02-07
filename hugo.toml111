@@ -1,0 +1,8 @@
+baseurl = "localhost" # 发布网址这里暂时填本地地址，以后修改为github的地址
+
+languageCode = "ja" #语言
+
+title = "ZYY博客"#标题
+
+author = "zhyyang"#作者
+theme="ananke" #主题名称要写，不然不好发布，这里填自己下载的主题名

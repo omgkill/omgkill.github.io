@@ -1,0 +1,50 @@
+name: Build & Deploy Hugo Site
+
+on:
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    types: [ docs-updated ]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # 必须：允许向 gh-pages 分支 push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout hugoblob
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 给 gh-pages 用，避免奇怪问题
+
+      - name: Setup SSH (for private docs)
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DOCS_DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Clone private docs
+        run: |
+          rm -rf content/post
+          git clone git@github.com:omgkill/wiki.git content/post
+
+      - name: Setup Hugo (Extended)
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.115.4'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify --gc --cleanDestinationDir
+
+      - name: Deploy to GitHub Pages (gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
+          force_orphan: true

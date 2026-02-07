@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  <header id="header" class="header container">
+    {{ partial "header.html" . }}
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight wallpaper">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+            <section>
+              <div class="search-container">
+                <!-- 搜索输入框 -->
+                <form action="{{ "search" | absURL }}" method="GET" class="search-form">
+                  <input type="search" id="search-query" name="s" class="search-input" placeholder="输入关键词搜索..." />
+                  <button type="submit" class="search-button">
+                    <i class="iconfont">{{ partial "svg/search.svg" . }}</i>
+                    搜索
+                  </button>
+                </form>
+
+                <!-- 搜索结果区域 -->
+                <div id="search-results">
+                  <h3 style="text-align:center">Matching pages</h3>
+                </div>
+              </div>
+            </section>
+
+            <!-- 搜索结果模板 -->
+            <script id="search-result-template" type="text/x-js-template">
+              <section class="search-result-item">
+                <hr align="center">
+                <div id="summary-${key}">
+                  <h4 class="search-result-title">
+                    <a href="${link}">${title}</a>
+                    ${ isset date }<span class="search-result-date">${date}</span>${ end }
+                  </h4>
+                  <p class="search-result-snippet">${snippet}</p>
+                  ${ isset matchTypes }<p class="search-result-match-types">匹配: ${matchTypes}</p>${ end }
+                  ${ isset tags }<p class="search-result-tags">Tags: ${tags}</p>${ end }
+                  ${ isset categories }<p class="search-result-categories">Categories: ${categories}</p>${ end }
+                </div>
+              </section>
+            </script>
+
+            <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+            <script src="{{ "js/search.js" | absURL }}"></script>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      {{ partial "footer.html" . }}
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        {{ partial "svg/up.svg" . }}
+      </i>
+    </div>
+  </div>
+
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>

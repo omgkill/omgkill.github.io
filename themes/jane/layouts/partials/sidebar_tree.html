@@ -1,0 +1,310 @@
+<aside id="doc-sidebar" class="doc-sidebar">
+  <div class="doc-sidebar-header">
+    <button id="doc-toggle" class="doc-toggle">目录</button>
+  </div>
+  <div id="doc-tree" class="doc-tree"></div>
+</aside>
+<div id="doc-backdrop" class="doc-backdrop"></div>
+<style>
+  .doc-sidebar {
+    position: fixed;
+    top: 56px;
+    left: 44px;
+    bottom: 12px;
+    width: 280px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    background: #fff;
+    overflow: auto;
+    z-index: 1002;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .18s ease, opacity .18s ease;
+    color-scheme: light dark;
+  }
+  .doc-sidebar.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .doc-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease;
+    z-index: 1001;
+  }
+  .doc-backdrop.is-open {
+    opacity: 0;
+    pointer-events: none;
+  }
+  body.doc-sidebar-open {
+    overflow: auto;
+  }
+  .doc-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .doc-toggle {
+    height: 28px;
+    padding: 0 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+  }
+  .doc-tree {
+    padding: 8px 10px 12px;
+  }
+  .tree-node {
+    list-style: none;
+    margin: 2px 0;
+    padding: 2px 0;
+  }
+  .tree-branch {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    color: #333;
+    font-size: 13px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .tree-branch:hover {
+    background: #f5f5f7;
+  }
+  .branch-caret {
+    width: 10px;
+    height: 10px;
+    border: solid #666;
+    border-width: 0 2px 2px 0;
+    transform: rotate(-45deg);
+    transition: transform .15s ease;
+    margin-right: 2px;
+  }
+  .collapsed .branch-caret {
+    transform: rotate(135deg);
+  }
+  .children {
+    margin-left: 10px;
+    border-left: 1px dashed #ececec;
+    padding-left: 8px;
+  }
+  .leaf {
+    display: block;
+    text-decoration: none;
+    color: #1d1d1f;
+    font-size: 13px;
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+  .leaf::before {
+    content: "📄";
+    margin-right: 6px;
+    font-size: 12px;
+    opacity: .7;
+  }
+  .leaf:hover {
+      background: #f5f5f7;
+    }
+    .leaf.active {
+      background: #e5f2ff;
+      color: #007aff;
+    }
+    @media (prefers-color-scheme: dark) {
+    .doc-sidebar {
+      background: #16181d;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+    .doc-sidebar-header {
+      background: #16181d;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    .doc-toggle {
+      background: #1f2229;
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #e6e6e6;
+    }
+    .tree-branch {
+      color: #e6e6e6;
+    }
+    .tree-branch:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .branch-caret {
+      border-color: #b6bcc7;
+    }
+    .children {
+      border-left-color: rgba(255, 255, 255, 0.12);
+    }
+    .leaf {
+      color: #d7dbe3;
+    }
+    .leaf:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .leaf.active {
+      background: rgba(88, 166, 255, 0.15);
+      color: #58a6ff;
+    }
+  }
+</style>
+<script>
+  (function() {
+    var indexUrl = "{{ "index.json" | absURL }}";
+    var sidebar = document.getElementById("doc-sidebar");
+    var treeEl = document.getElementById("doc-tree");
+    var toggleBtn = document.getElementById("doc-toggle");
+    var backdrop = document.getElementById("doc-backdrop");
+    if (!sidebar || !treeEl || !toggleBtn || !backdrop) return;
+    function dec(s) { try { return decodeURIComponent(s); } catch(e) { return s; } }
+    var toggleBtnGlobal = document.getElementById("doc-toggle-global");
+    var sidebarStorageKey = "docSidebarOpen";
+    function openSidebar() {
+      sidebar.classList.add("is-open");
+      backdrop.classList.add("is-open");
+      document.body.classList.add("doc-sidebar-open");
+      try { localStorage.setItem(sidebarStorageKey, "1"); } catch(e) {}
+    }
+    function closeSidebar() {
+      sidebar.classList.remove("is-open");
+      backdrop.classList.remove("is-open");
+      document.body.classList.remove("doc-sidebar-open");
+      try { localStorage.removeItem(sidebarStorageKey); } catch(e) {}
+    }
+    function toggleSidebar() {
+      if (sidebar.classList.contains("is-open")) closeSidebar(); else openSidebar();
+    }
+    toggleBtn.addEventListener("click", toggleSidebar);
+    if (toggleBtnGlobal) toggleBtnGlobal.addEventListener("click", toggleSidebar);
+    backdrop.addEventListener("click", closeSidebar);
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeSidebar();
+    });
+    document.addEventListener("click", function(e) {
+      if (!sidebar.classList.contains("is-open")) return;
+      if (sidebar.contains(e.target)) return;
+      if (toggleBtn.contains(e.target)) return;
+      if (toggleBtnGlobal && toggleBtnGlobal.contains(e.target)) return;
+      closeSidebar();
+    });
+    try {
+      if (localStorage.getItem(sidebarStorageKey) === "1") {
+        openSidebar();
+      }
+    } catch(e) {}
+    function buildTree(items) {
+      var root = {};
+      items.forEach(function(item) {
+        var url = item.permalink || "";
+        var title = item.title || "";
+        if (!url || url.indexOf("/post/") === -1) return;
+        var path = url.split("/post/")[1] || "";
+        var parts = path.split("/").filter(Boolean);
+        if (!parts.length) return;
+        var node = root;
+        for (var i = 0; i < parts.length - 1; i++) {
+          var key = parts[i];
+          node.children = node.children || {};
+          node.children[key] = node.children[key] || { nameRaw: key, name: dec(key), children: {}, leaves: [] };
+          node = node.children[key];
+        }
+        node.leaves = node.leaves || [];
+        node.leaves.push({ nameRaw: parts[parts.length - 1], name: dec(parts[parts.length - 1]), title: title, url: url });
+      });
+      return root;
+    }
+    function renderNode(node, container) {
+      var keys = Object.keys(node.children || {}).sort();
+      var hasActiveChild = false;
+      if (keys.length) {
+        keys.forEach(function(k) {
+          var n = node.children[k];
+          var li = document.createElement("div");
+          li.className = "tree-node";
+          var branch = document.createElement("div");
+          branch.className = "tree-branch";
+          var caretWrap = document.createElement("span");
+          caretWrap.className = "branch-caret";
+          branch.appendChild(caretWrap);
+          var label = document.createElement("span");
+          label.textContent = n.name;
+          branch.appendChild(label);
+          var children = document.createElement("div");
+          children.className = "children";
+          
+          var childActive = renderNode(n, children);
+          if (childActive) {
+            children.style.display = "block";
+            branch.classList.remove("collapsed");
+            hasActiveChild = true;
+          } else {
+            children.style.display = "none";
+            branch.classList.add("collapsed");
+          }
+
+          branch.addEventListener("click", function() {
+            var isHidden = children.style.display === "none";
+            children.style.display = isHidden ? "block" : "none";
+            branch.classList.toggle("collapsed", !isHidden);
+          });
+          li.appendChild(branch);
+          li.appendChild(children);
+          container.appendChild(li);
+        });
+      }
+      var leaves = (node.leaves || []).slice().sort(function(a, b) {
+        return a.title.localeCompare(b.title);
+      });
+      leaves.forEach(function(leaf) {
+        var a = document.createElement("a");
+        a.className = "leaf";
+        a.textContent = leaf.title || leaf.name;
+        a.href = leaf.url;
+        
+        try {
+            // Normalize URL for comparison
+            var currentLoc = window.location.href.split(/[?#]/)[0].replace(/\/$/, "");
+            var leafLoc = leaf.url.split(/[?#]/)[0].replace(/\/$/, "");
+            // Also check decoded version for Chinese characters in URL
+            var currentLocDec = decodeURIComponent(currentLoc);
+            var leafLocDec = decodeURIComponent(leafLoc);
+            
+            if (currentLoc === leafLoc || currentLocDec === leafLocDec) {
+                a.classList.add("active");
+                hasActiveChild = true;
+            }
+        } catch(e) {}
+        
+        container.appendChild(a);
+      });
+      return hasActiveChild;
+    }
+    function renderTree(data) {
+      var t = buildTree(data);
+      treeEl.innerHTML = "";
+      renderNode(t, treeEl);
+    }
+    fetch(indexUrl)
+      .then(function(r) { return r.json(); })
+      .then(function(d) { renderTree(Array.isArray(d) ? d : []); })
+      .catch(function() { treeEl.innerHTML = ""; });
+  })();
+</script>

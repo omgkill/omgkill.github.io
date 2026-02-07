@@ -1,0 +1,159 @@
+# This is a simple configuration.
+# If you want to see the full configuration, please check `full-config.toml` .
+# And see https://gohugo.io/getting-started/configuration/ .
+
+baseURL = "https://omgkill.github.io/"
+title = "MMM"
+enableRobotsTXT = true
+enableEmoji = true
+theme = "jane"
+
+hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+paginate = 8              # Number of articles displayed on the homepage  # 首页每页显示的文章数
+rssLimit = 1             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
+disqusShortname = ""      # disqus_shortname
+googleAnalytics = ""      # UA-XXXXXXXX-X
+copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
+
+# language support # en / zh-cn / other... translations present in i18n/
+defaultContentLanguage = "zh-cn"           # Default language to use
+
+[languages.zh-cn]
+languageCode = "zh-CN"
+languageName = "中文"
+weight = 1
+
+[languages.en]
+languageCode = "en"
+languageName = "English"
+weight = 2
+
+# 关于语法高亮，具体使用可查看https://gohugo.io/content-management/syntax-highlighting/
+#PygmentsCodeFences = true                      # Enable syntax highlighting with GitHub flavoured code fences
+#PygmentsUseClasses = true                      # Use CSS classes to format highlighted code
+#PygmentsCodefencesGuessSyntax = true           #
+#PygmentsOptions = "linenos=table"              # 开启显示行号
+
+[author]
+name = "啊沉"        # essential                     # 必需
+url = "/about"          # optional                      # 可选
+
+[sitemap]                 # essential                     # 必需
+changefreq = "weekly"
+priority = 0.5
+filename = "sitemap.xml"
+
+[[menu.main]]             # config your menu              # 配置目录
+name = "This is Home"
+weight = 10
+identifier = "home"
+pageref = "/"
+[[menu.main]]
+name = "Archives"
+weight = 20
+identifier = "archives"
+pageref = "/post/"
+[[menu.main]]
+name = "Tags"
+weight = 30
+identifier = "tags"
+pageref = "/tags/"
+[[menu.main]]
+name = "Categories"
+weight = 40
+identifier = "categories"
+pageref = "/categories/"
+#[[menu.main]]
+#    name = "external-link"
+#    weight = 50
+#    pageref = "https://gohugo.io"
+
+[params]
+
+since = "2023"            # Site creation time          # 站点建立时间
+homeFullContent = false   # if false, show post summaries on home page. Otherwise show full content.
+rssFullContent = false     # if false, Rss feed instead of the summary
+
+# site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+logoTitle = "MMM"        # default: the title value    # 默认值: 上面设置的title值
+keywords = ["java", "linux","game server"]
+description = ""
+archive-paginate = 40
+
+# The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+dateFormatToUse = "2006-01-02"
+moreMeta = true                               # 是否显示字数统计与阅读时间
+showAuthorInfo = false                         # 文章末尾显示作者信息
+
+# 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+# Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+toc = true                                                                            # 是否开启目录
+photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
+contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+
+# Link custom CSS and JS assets
+#   (relative to /static/css and /static/js respectively)
+customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
+customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
+
+[params.social]                                         # 社交链接
+#a-email = "mailto:your@email.com"
+#b-stack-overflow = "http://localhost:1313"
+#c-twitter = "http://localhost:1313"
+#d-facebook = "http://localhost:1313"
+#e-linkedin = "http://localhost:1313"
+#f-google = "http://localhost:1313"
+#g-github = "http://localhost:1313"
+#h-weibo = "http://localhost:1313"
+#i-zhihu = "http://localhost:1313"
+#j-douban = "http://localhost:1313"
+#k-pocket = "http://localhost:1313"
+#l-tumblr = "http://localhost:1313"
+#m-instagram = "http://localhost:1313"
+#n-gitlab = "http://localhost:1313"
+#o-goodreads = "http://localhost:1313"
+#p-coding = "http://localhost:1313"
+#q-bilibili = "http://localhost:1313"
+#r-codeforces = "http://localhost:1313"
+#s-mastodon = "http://localhost:1313"
+#t-youtube = "http://localhost:1313"
+#u-twitch = "http://localhost:1313"
+
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
+enable = true
+jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
+gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
+gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
+photoswipe = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>'
+photoswipeUI = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>'
+photoswipeCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">'
+photoswipeSKIN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">'
+
+
+# more information https://gohugo.io/getting-started/configuration-markup/#goldmark
+[markup]
+defaultMarkdownHandler = "goldmark"  # blackfriday or goldmark
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+
+# Highlight options. See https://gohugo.io/content-management/syntax-highlighting/
+[markup.highlight]
+anchorLineNos = true
+codeFences = true
+guessSyntax = true
+hl_Lines = ''
+hl_inline = false
+lineAnchors = ''
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = false
+noHl = false
+style = 'friendly'
+tabWidth = 4

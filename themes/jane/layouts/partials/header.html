@@ -1,0 +1,426 @@
+<div class="logo-wrapper">
+  <button type="button" id="doc-toggle-global" class="doc-logo-btn" aria-label="目录">
+    <span class="doc-nav-icon"></span>
+  </button>
+  <a href="{{ "/" | relLangURL }}" class="logo">
+    {{ if .Site.Params.logoTitle }}
+      {{ .Site.Params.logoTitle | safeHTML }}
+    {{ else }}
+      {{ .Site.Title }}
+    {{ end }}
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+        <li class="menu-item{{ if $currentPage.IsMenuCurrent "main" . }} active{{end}}">
+        {{ if .HasChildren }}
+          <!-- drop down navigation MENU -->
+          <a class="menu-item-link menu-parent" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+          <ul class="submenu">
+            {{ range .Children }}
+              <li class="submenu-item">
+                <a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+              </li>
+            {{ end }}
+          </ul>
+
+        {{ else }}
+          <!-- normal MENU -->
+          {{ if hasPrefix .URL "http" }}
+            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}" rel="noopener" target="_blank">
+              {{ .Name }}
+              {{/* icon new window */}}
+              <i class="iconfont">
+                {{ partial "svg/new_window.svg" }}
+              </i>
+            </a>
+          {{ else }}
+            <a class="menu-item-link" href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a>
+          {{ end }}
+
+        {{ end  }}
+
+      </li>
+    {{ end }}
+    <li class="menu-item header-search-item">
+        <form action="/search" method="GET" class="header-search-form menu-item-link" autocomplete="off">
+          <input type="search" name="s" id="header-search-query" class="header-search-input" placeholder="搜索..." autocomplete="off">
+          <button type="submit" class="header-search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+          <div class="header-search-panel" id="header-search-panel">
+            <div class="header-search-results" id="header-search-results"></div>
+            <a class="header-search-more" id="header-search-more" href="/search">更多</a>
+          </div>
+        </form>
+      <style>
+        .header-search-form {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+        .header-search-form input[type="search"] {
+          padding: 10px 44px 10px 16px;
+          font-size: 14px;
+          border: 2px solid #e0e0e0;
+          border-radius: 24px;
+          background-color: #fff;
+          outline: none;
+          width: 220px !important;
+          transition: none;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header-search-form input[type="search"]:focus {
+          border-color: #0066cc;
+          box-shadow: 0 2px 12px rgba(0, 102, 204, 0.2);
+        }
+        .header-search-form.is-open input[type="search"] {
+          border-color: #0066cc;
+          box-shadow: 0 2px 12px rgba(0, 102, 204, 0.2);
+        }
+        .header-search-item {
+          border-bottom: 2px solid transparent;
+        }
+        .header-search-item:hover {
+          border-bottom-color: transparent;
+        }
+        .logo-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-left: -14px;
+        }
+        .doc-logo-btn {
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          padding: 0;
+          margin-left: -10px;
+        }
+        .doc-nav-icon {
+          position: relative;
+          width: 18px;
+          height: 12px;
+          display: inline-block;
+        }
+        .doc-nav-icon::before,
+        .doc-nav-icon::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: currentColor;
+          border-radius: 2px;
+        }
+        .doc-nav-icon::before {
+          top: 0;
+          box-shadow: 0 5px 0 0 currentColor;
+        }
+        .doc-nav-icon::after {
+          bottom: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+          .doc-logo-btn {
+            color: #ffb74d;
+            background: rgba(255, 183, 77, 0.2);
+            border-radius: 6px;
+          }
+        }
+        .header-search-form input[type="search"]::placeholder {
+          color: #999;
+        }
+        .header-search-btn {
+          position: absolute;
+          right: 4px;
+          width: 34px;
+          height: 34px;
+          border: none;
+          border-radius: 50%;
+          background: #0066cc;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+        .header-search-btn:hover {
+          background: #0055aa;
+          transform: scale(1.05);
+        }
+        .header-search-btn svg {
+          width: 18px;
+          height: 18px;
+          color: #fff;
+        }
+        .header-search-panel {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          margin-top: 8px;
+          background: #fff;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+          padding: 8px;
+          display: none;
+          z-index: 9999;
+        }
+        .header-search-panel.visible {
+          display: block;
+        }
+        .header-search-results {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding: 4px 4px 6px;
+          will-change: transform;
+        }
+        .header-search-result {
+          padding: 8px 10px;
+          border-radius: 8px;
+          text-decoration: none;
+          color: #1d1d1f;
+          font-size: 14px;
+          line-height: 1.4;
+          transition: background-color 0.15s ease;
+          border: 1px solid transparent;
+        }
+        .header-search-result:hover {
+          background-color: #f5f5f7;
+        }
+        .header-search-result:focus {
+          outline: none;
+        }
+        .header-search-result:focus-visible {
+          outline: none;
+        }
+        .header-search-result.is-active {
+          background-color: transparent;
+          border-color: #b9bcc4;
+        }
+        .header-search-more {
+          display: block;
+          padding: 8px 10px;
+          border-top: 1px solid #eee;
+          text-decoration: none;
+          color: #0066cc;
+          font-size: 13px;
+        }
+        .header-search-empty {
+          padding: 8px 10px;
+          color: #86868b;
+          font-size: 13px;
+        }
+      </style>
+      <script>
+        (function() {
+          var form = document.querySelector(".header-search-form");
+          if (!form) return;
+          var input = form.querySelector(".header-search-input");
+          var panel = form.querySelector("#header-search-panel");
+          var resultsEl = form.querySelector("#header-search-results");
+          var moreLink = form.querySelector("#header-search-more");
+          if (!input || !panel || !resultsEl || !moreLink) return;
+          var indexUrl = "{{ "index.json" | absURL }}";
+          var searchUrl = "{{ "search" | absURL }}";
+          var cache = null;
+          var loading = null;
+          var debounceTimer = null;
+          var activeIndex = -1;
+          var currentResults = [];
+
+          function loadIndex() {
+            if (cache) return Promise.resolve(cache);
+            if (loading) return loading;
+            loading = fetch(indexUrl)
+              .then(function(res) { return res.json(); })
+              .then(function(data) {
+                cache = Array.isArray(data) ? data : [];
+                return cache;
+              })
+              .catch(function() {
+                cache = [];
+                return cache;
+              });
+            return loading;
+          }
+
+          function escapeHtml(value) {
+            return String(value || "")
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#39;");
+          }
+
+          function renderEmpty() {
+            resultsEl.innerHTML = '<div class="header-search-empty">未找到相关标题</div>';
+            moreLink.style.display = "none";
+            form.classList.add("is-open");
+            panel.classList.add("visible");
+            activeIndex = -1;
+            currentResults = [];
+          }
+
+          function renderResults(items, query, total) {
+            var html = items.map(function(item) {
+              return '<a class="header-search-result" href="' + item.permalink + '">' + escapeHtml(item.title) + '</a>';
+            }).join("");
+            resultsEl.innerHTML = html;
+            moreLink.style.display = total > 0 ? "block" : "none";
+            moreLink.setAttribute("href", searchUrl + "?s=" + encodeURIComponent(query));
+            form.classList.add("is-open");
+            panel.classList.add("visible");
+            activeIndex = -1;
+            currentResults = items;
+          }
+
+          function updateResults() {
+            var query = input.value.trim();
+            if (!query) {
+              panel.classList.remove("visible");
+              form.classList.remove("is-open");
+              resultsEl.innerHTML = "";
+              activeIndex = -1;
+              currentResults = [];
+              return;
+            }
+            loadIndex().then(function(pages) {
+              var lower = query.toLowerCase();
+              var seen = {};
+              var matches = [];
+              pages.forEach(function(page) {
+                var title = page && page.title ? String(page.title) : "";
+                if (!title) return;
+                var contents = page && page.contents ? String(page.contents) : "";
+                var tags = Array.isArray(page && page.tags) ? page.tags.join(" ") : "";
+                var categories = Array.isArray(page && page.categories) ? page.categories.join(" ") : "";
+                var searchable = (title + " " + contents + " " + tags + " " + categories).toLowerCase();
+                if (searchable.indexOf(lower) === -1) return;
+                var permalink = page.permalink || "";
+                if (permalink && seen[permalink]) return;
+                if (permalink) seen[permalink] = true;
+                matches.push({
+                  title: title,
+                  permalink: permalink,
+                  date: page.date || 0
+                });
+              });
+              matches.sort(function(a, b) {
+                var dateA = a.date || 0;
+                var dateB = b.date || 0;
+                return dateB - dateA;
+              });
+              if (!matches.length) {
+                renderEmpty();
+                return;
+              }
+              renderResults(matches.slice(0, 6), query, matches.length);
+            });
+          }
+
+          function setActive(index) {
+            var items = resultsEl.querySelectorAll(".header-search-result");
+            items.forEach(function(item) {
+              item.classList.remove("is-active");
+            });
+            if (index >= 0 && index < items.length) {
+              items[index].classList.add("is-active");
+            }
+            activeIndex = index;
+          }
+
+          input.addEventListener("input", function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(updateResults, 120);
+          });
+
+          input.addEventListener("focus", function() {
+            if (input.value.trim()) {
+              updateResults();
+            }
+          });
+
+          input.addEventListener("keydown", function(event) {
+            if (!panel.classList.contains("visible")) return;
+            if (!currentResults.length) return;
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              var nextIndex = activeIndex + 1;
+              if (nextIndex >= currentResults.length) nextIndex = 0;
+              setActive(nextIndex);
+              return;
+            }
+            if (event.key === "ArrowUp") {
+              event.preventDefault();
+              var prevIndex = activeIndex - 1;
+              if (prevIndex < 0) prevIndex = currentResults.length - 1;
+              setActive(prevIndex);
+              return;
+            }
+            if (event.key === "Enter") {
+              if (activeIndex >= 0 && currentResults[activeIndex]) {
+                event.preventDefault();
+                window.location.href = currentResults[activeIndex].permalink;
+              }
+            }
+          });
+
+          document.addEventListener("click", function(event) {
+            if (!form.contains(event.target)) {
+              panel.classList.remove("visible");
+              form.classList.remove("is-open");
+              setActive(-1);
+            }
+          });
+        })();
+      </script>
+    </li>
+
+    {{/* language chooser */}}
+    {{ if and (gt (len .Site.Home.AllTranslations) 1) (.Site.Params.showMenuLanguageChooser | default false ) }}
+      {{- $.Scratch.Set "language" .Language -}}
+      <li class="menu-item">
+        <!-- drop down navigation MENU -->
+        <a class="menu-item-link menu-parent menu-item-lang" href="#">
+          {{/* icon globe */}}
+          <i class="iconfont">
+            {{ partial "svg/globe.svg" }}
+          </i>
+          {{ .Site.Language.LanguageName }}
+        </a>
+        <ul class="submenu">
+          {{ range .Site.Home.AllTranslations }}
+            {{ if ne ($.Scratch.Get "language") .Language }}
+              <li class="submenu-item">
+                <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+    {{ if .Site.Params.search.google.enable }}
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            {{ partial "svg/search.svg" }}
+          </i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
