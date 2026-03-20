@@ -1,0 +1,34 @@
+Total time for which application threads were stopped: 0.0043330 seconds
+Application time: 1410.4236260 seconds
+{Heap before GC invocations=636 (full 2):
+ par new generation   total 38336K, used 34123K [0x00002aaab1a60000, 0x00002aaab43f0000, 0x00002aaab43f0000)
+  eden space 34112K, 100% used [0x00002aaab1a60000, 0x00002aaab3bb0000, 0x00002aaab3bb0000)
+  from space 4224K,   0% used [0x00002aaab3bb0000, 0x00002aaab3bb2de0, 0x00002aaab3fd0000)
+  to   space 4224K,   0% used [0x00002aaab3fd0000, 0x00002aaab3fd0000, 0x00002aaab43f0000)
+ concurrent mark-sweep generation total 1006016K, used 208278K [0x00002aaab43f0000, 0x00002aaaf1a60000, 0x00002aab31a60000)
+ concurrent-mark-sweep perm gen total 153600K, used 90763K [0x00002aab31a60000, 0x00002aab3b060000, 0x00002aab3b060000)
+122682.024: [GC 122682.024: [ParNew
+Desired survivor size 2162688 bytes, new threshold 4 (max 4)
+- age   1:       4896 bytes,       4896 total
+- age   2:       2272 bytes,       7168 total
+: 34123K->10K(38336K), 0.0037720 secs] 242402K->208291K(1044352K), 0.0038540 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+Heap after GC invocations=637 (full 2):
+ par new generation   total 38336K, used 10K [0x00002aaab1a60000, 0x00002aaab43f0000, 0x00002aaab43f0000)
+  eden space 34112K,   0% used [0x00002aaab1a60000, 0x00002aaab1a60000, 0x00002aaab3bb0000)
+  from space 4224K,   0% used [0x00002aaab3fd0000, 0x00002aaab3fd2bf8, 0x00002aaab43f0000)
+  to   space 4224K,   0% used [0x00002aaab3bb0000, 0x00002aaab3bb0000, 0x00002aaab3fd0000)
+ concurrent mark-sweep generation total 1006016K, used 208280K [0x00002aaab43f0000, 0x00002aaaf1a60000, 0x00002aab31a60000)
+ concurrent-mark-sweep perm gen total 153600K, used 90763K [0x00002aab31a60000, 0x00002aab3b060000, 0x00002aab3b060000)
+}
+Total time for which application threads were stopped: 0.0044760 seconds
+Application time: 317.6313600 seconds
+Total time for which application threads were stopped: 0.0004960 seconds
+Application time: 86.5483550 seconds
+Total time for which application threads were stopped: 0.0005090 seconds
+Application time: 0.0001400 seconds
+Total time for which application threads were stopped: 0.0001360 seconds
+Application time: 46.6827150 seconds
+Total time for which application threads were stopped: 0.0004430 seconds
+Application time: 74.2952540 seconds
+Total time for which application threads were stopped: 0.0004940 seconds
+Application time: 0.0001300 seconds
